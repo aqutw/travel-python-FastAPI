@@ -1,0 +1,33 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "description": "露營與包棟主題商品集合。",
+    "id": "camping",
+    "image": {
+      "alt": "露營與包棟",
+      "height": 800,
+      "url": "/images/stay.svg",
+      "width": 1200
+    },
+    "product_ids": [
+      "stay-003",
+      "stay-004",
+      "stay-007",
+      "stay-008",
+      "stay-011",
+      "stay-012"
+    ],
+    "title": "露營與包棟"
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

@@ -1,0 +1,73 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "description": "從熱門目的地出發，尋找適合自己的住宿方案。",
+      "id": "stay-picks",
+      "image": {
+        "alt": "住宿主題示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      },
+      "product_ids": [
+        "stay-001",
+        "stay-002",
+        "stay-003",
+        "stay-004",
+        "stay-005",
+        "stay-006",
+        "stay-007",
+        "stay-008",
+        "stay-009",
+        "stay-010",
+        "stay-011",
+        "stay-012"
+      ],
+      "title": "住宿靈感精選"
+    },
+    {
+      "description": "從熱門目的地出發，尋找適合自己的郵輪方案。",
+      "id": "cruise-picks",
+      "image": {
+        "alt": "郵輪主題示意圖",
+        "height": 800,
+        "url": "/images/cruise.svg",
+        "width": 1200
+      },
+      "product_ids": [
+        "cruise-001",
+        "cruise-002",
+        "cruise-003",
+        "cruise-004",
+        "cruise-005",
+        "cruise-006",
+        "cruise-007",
+        "cruise-008",
+        "cruise-009",
+        "cruise-010",
+        "cruise-011",
+        "cruise-012"
+      ],
+      "title": "郵輪靈感精選"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "pagination": {
+      "has_next": true,
+      "page": 1,
+      "per_page": 2,
+      "total": 10,
+      "total_pages": 5
+    },
+    "reference_date": "2026-10-20"
+  }
+}

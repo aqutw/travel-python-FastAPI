@@ -1,0 +1,41 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "author": "示範旅人 1",
+      "content": "說明清楚，行程安排有餘裕。",
+      "created_at": "2026-09-15",
+      "id": "stay-001-review-1",
+      "product_id": "stay-001",
+      "rating": 5,
+      "travel_date": "2026-09-10"
+    },
+    {
+      "author": "示範旅人 2",
+      "content": "環境舒適，適合和家人一起安排。",
+      "created_at": "2026-09-16",
+      "id": "stay-001-review-2",
+      "product_id": "stay-001",
+      "rating": 5,
+      "travel_date": "2026-09-11"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "pagination": {
+      "has_next": true,
+      "page": 1,
+      "per_page": 2,
+      "total": 5,
+      "total_pages": 3
+    },
+    "reference_date": "2026-10-20"
+  }
+}

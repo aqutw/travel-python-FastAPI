@@ -1,0 +1,126 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "amenities": [
+      {
+        "count": 12,
+        "value": "breakfast"
+      },
+      {
+        "count": 3,
+        "value": "hot_spring"
+      },
+      {
+        "count": 4,
+        "value": "parking"
+      },
+      {
+        "count": 12,
+        "value": "wifi"
+      }
+    ],
+    "destinations": [
+      {
+        "count": 1,
+        "value": "bangkok"
+      },
+      {
+        "count": 1,
+        "value": "hokkaido"
+      },
+      {
+        "count": 1,
+        "value": "hualien"
+      },
+      {
+        "count": 1,
+        "value": "kyoto"
+      },
+      {
+        "count": 1,
+        "value": "okinawa"
+      },
+      {
+        "count": 1,
+        "value": "osaka"
+      },
+      {
+        "count": 1,
+        "value": "seoul"
+      },
+      {
+        "count": 1,
+        "value": "singapore"
+      },
+      {
+        "count": 1,
+        "value": "tainan"
+      },
+      {
+        "count": 1,
+        "value": "taipei"
+      },
+      {
+        "count": 1,
+        "value": "tokyo"
+      },
+      {
+        "count": 1,
+        "value": "yilan"
+      }
+    ],
+    "max_price": 3150,
+    "min_price": 2400,
+    "tags": [
+      {
+        "count": 3,
+        "value": "包棟"
+      },
+      {
+        "count": 8,
+        "value": "慢遊精選"
+      },
+      {
+        "count": 3,
+        "value": "溫泉"
+      },
+      {
+        "count": 4,
+        "value": "熱門推薦"
+      },
+      {
+        "count": 6,
+        "value": "親子友善"
+      },
+      {
+        "count": 6,
+        "value": "雙人出遊"
+      },
+      {
+        "count": 3,
+        "value": "露營"
+      },
+      {
+        "count": 3,
+        "value": "飯店"
+      }
+    ],
+    "types": [
+      {
+        "count": 12,
+        "value": "stay"
+      }
+    ]
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

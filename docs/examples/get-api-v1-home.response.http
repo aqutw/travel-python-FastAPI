@@ -1,0 +1,2033 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "articles": [
+      {
+        "content": [
+          "從台北的步行街區開始，選擇一間喜歡的小店。",
+          "中午留給在地餐桌，下午安排一段自然散步。",
+          "這篇內容為原創假資料，交通與營業時間請勿作為真實出遊依據。"
+        ],
+        "destination_id": "taipei",
+        "id": "guide-taipei",
+        "image": {
+          "alt": "台北旅遊示意圖",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "related_product_ids": [
+          "stay-001",
+          "tour-001",
+          "activity-001",
+          "transfer-001"
+        ],
+        "summary": "三個方向，安排一段從容的假期。",
+        "title": "台北慢旅行：留一點時間給街角"
+      },
+      {
+        "content": [
+          "從宜蘭的步行街區開始，選擇一間喜歡的小店。",
+          "中午留給在地餐桌，下午安排一段自然散步。",
+          "這篇內容為原創假資料，交通與營業時間請勿作為真實出遊依據。"
+        ],
+        "destination_id": "yilan",
+        "id": "guide-yilan",
+        "image": {
+          "alt": "宜蘭旅遊示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "related_product_ids": [
+          "stay-002",
+          "tour-002",
+          "activity-002",
+          "transfer-002"
+        ],
+        "summary": "三個方向，安排一段從容的假期。",
+        "title": "宜蘭慢旅行：留一點時間給街角"
+      },
+      {
+        "content": [
+          "從花蓮的步行街區開始，選擇一間喜歡的小店。",
+          "中午留給在地餐桌，下午安排一段自然散步。",
+          "這篇內容為原創假資料，交通與營業時間請勿作為真實出遊依據。"
+        ],
+        "destination_id": "hualien",
+        "id": "guide-hualien",
+        "image": {
+          "alt": "花蓮旅遊示意圖",
+          "height": 800,
+          "url": "/images/tour.svg",
+          "width": 1200
+        },
+        "related_product_ids": [
+          "stay-003",
+          "tour-003",
+          "activity-003",
+          "transfer-003"
+        ],
+        "summary": "三個方向，安排一段從容的假期。",
+        "title": "花蓮慢旅行：留一點時間給街角"
+      }
+    ],
+    "campaigns": [
+      {
+        "collection_id": "stay-picks",
+        "coupon_code": "DEMO100",
+        "description": "原創虛構優惠，僅供前端畫面展示。",
+        "discount_amount": 100,
+        "id": "escape-stay",
+        "image": {
+          "alt": "優惠活動示意圖",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "minimum_spend": 3000,
+        "terms": [
+          "僅供開發測試。",
+          "不適用任何真實訂單。"
+        ],
+        "title": "住進週末的留白"
+      },
+      {
+        "collection_id": "cruise-picks",
+        "coupon_code": "DEMO200",
+        "description": "原創虛構優惠，僅供前端畫面展示。",
+        "discount_amount": 200,
+        "id": "escape-cruise",
+        "image": {
+          "alt": "優惠活動示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "minimum_spend": 3000,
+        "terms": [
+          "僅供開發測試。",
+          "不適用任何真實訂單。"
+        ],
+        "title": "把假期交給海風"
+      },
+      {
+        "collection_id": "tour-picks",
+        "coupon_code": "DEMO300",
+        "description": "原創虛構優惠，僅供前端畫面展示。",
+        "discount_amount": 300,
+        "id": "escape-tour",
+        "image": {
+          "alt": "優惠活動示意圖",
+          "height": 800,
+          "url": "/images/tour.svg",
+          "width": 1200
+        },
+        "minimum_spend": 3000,
+        "terms": [
+          "僅供開發測試。",
+          "不適用任何真實訂單。"
+        ],
+        "title": "下一站，一起出發"
+      }
+    ],
+    "categories": [
+      {
+        "description": "探索住宿商品與方案",
+        "id": "stay",
+        "image": {
+          "alt": "住宿示意圖",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "name": "住宿"
+      },
+      {
+        "description": "探索郵輪商品與方案",
+        "id": "cruise",
+        "image": {
+          "alt": "郵輪示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "name": "郵輪"
+      },
+      {
+        "description": "探索跟團旅遊商品與方案",
+        "id": "tour",
+        "image": {
+          "alt": "跟團旅遊示意圖",
+          "height": 800,
+          "url": "/images/tour.svg",
+          "width": 1200
+        },
+        "name": "跟團旅遊"
+      },
+      {
+        "description": "探索景點體驗商品與方案",
+        "id": "activity",
+        "image": {
+          "alt": "景點體驗示意圖",
+          "height": 800,
+          "url": "/images/activity.svg",
+          "width": 1200
+        },
+        "name": "景點體驗"
+      },
+      {
+        "description": "探索包車接送商品與方案",
+        "id": "transfer",
+        "image": {
+          "alt": "包車接送示意圖",
+          "height": 800,
+          "url": "/images/transfer.svg",
+          "width": 1200
+        },
+        "name": "包車接送"
+      },
+      {
+        "description": "探索eSIM商品與方案",
+        "id": "esim",
+        "image": {
+          "alt": "eSIM示意圖",
+          "height": 800,
+          "url": "/images/esim.svg",
+          "width": 1200
+        },
+        "name": "eSIM"
+      },
+      {
+        "description": "探索運動旅遊商品與方案",
+        "id": "sport",
+        "image": {
+          "alt": "運動旅遊示意圖",
+          "height": 800,
+          "url": "/images/sport.svg",
+          "width": 1200
+        },
+        "name": "運動旅遊"
+      },
+      {
+        "description": "探索鐵道假期商品與方案",
+        "id": "rail",
+        "image": {
+          "alt": "鐵道假期示意圖",
+          "height": 800,
+          "url": "/images/rail.svg",
+          "width": 1200
+        },
+        "name": "鐵道假期"
+      }
+    ],
+    "collections": [
+      {
+        "description": "從熱門目的地出發，尋找適合自己的住宿方案。",
+        "id": "stay-picks",
+        "image": {
+          "alt": "住宿主題示意圖",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "stay-001",
+          "stay-002",
+          "stay-003",
+          "stay-004",
+          "stay-005",
+          "stay-006",
+          "stay-007",
+          "stay-008",
+          "stay-009",
+          "stay-010",
+          "stay-011",
+          "stay-012"
+        ],
+        "title": "住宿靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的郵輪方案。",
+        "id": "cruise-picks",
+        "image": {
+          "alt": "郵輪主題示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "cruise-001",
+          "cruise-002",
+          "cruise-003",
+          "cruise-004",
+          "cruise-005",
+          "cruise-006",
+          "cruise-007",
+          "cruise-008",
+          "cruise-009",
+          "cruise-010",
+          "cruise-011",
+          "cruise-012"
+        ],
+        "title": "郵輪靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的跟團旅遊方案。",
+        "id": "tour-picks",
+        "image": {
+          "alt": "跟團旅遊主題示意圖",
+          "height": 800,
+          "url": "/images/tour.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "tour-001",
+          "tour-002",
+          "tour-003",
+          "tour-004",
+          "tour-005",
+          "tour-006",
+          "tour-007",
+          "tour-008",
+          "tour-009",
+          "tour-010",
+          "tour-011",
+          "tour-012"
+        ],
+        "title": "跟團旅遊靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的景點體驗方案。",
+        "id": "activity-picks",
+        "image": {
+          "alt": "景點體驗主題示意圖",
+          "height": 800,
+          "url": "/images/activity.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "activity-001",
+          "activity-002",
+          "activity-003",
+          "activity-004",
+          "activity-005",
+          "activity-006",
+          "activity-007",
+          "activity-008",
+          "activity-009",
+          "activity-010",
+          "activity-011",
+          "activity-012"
+        ],
+        "title": "景點體驗靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的包車接送方案。",
+        "id": "transfer-picks",
+        "image": {
+          "alt": "包車接送主題示意圖",
+          "height": 800,
+          "url": "/images/transfer.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "transfer-001",
+          "transfer-002",
+          "transfer-003",
+          "transfer-004",
+          "transfer-005",
+          "transfer-006",
+          "transfer-007",
+          "transfer-008",
+          "transfer-009",
+          "transfer-010",
+          "transfer-011",
+          "transfer-012"
+        ],
+        "title": "包車接送靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的eSIM方案。",
+        "id": "esim-picks",
+        "image": {
+          "alt": "eSIM主題示意圖",
+          "height": 800,
+          "url": "/images/esim.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "esim-001",
+          "esim-002",
+          "esim-003",
+          "esim-004",
+          "esim-005",
+          "esim-006",
+          "esim-007",
+          "esim-008",
+          "esim-009",
+          "esim-010",
+          "esim-011",
+          "esim-012"
+        ],
+        "title": "eSIM靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的運動旅遊方案。",
+        "id": "sport-picks",
+        "image": {
+          "alt": "運動旅遊主題示意圖",
+          "height": 800,
+          "url": "/images/sport.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "sport-001",
+          "sport-002",
+          "sport-003",
+          "sport-004",
+          "sport-005",
+          "sport-006",
+          "sport-007",
+          "sport-008",
+          "sport-009",
+          "sport-010",
+          "sport-011",
+          "sport-012"
+        ],
+        "title": "運動旅遊靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的鐵道假期方案。",
+        "id": "rail-picks",
+        "image": {
+          "alt": "鐵道假期主題示意圖",
+          "height": 800,
+          "url": "/images/rail.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "rail-001",
+          "rail-002",
+          "rail-003",
+          "rail-004",
+          "rail-005",
+          "rail-006",
+          "rail-007",
+          "rail-008",
+          "rail-009",
+          "rail-010",
+          "rail-011",
+          "rail-012"
+        ],
+        "title": "鐵道假期靈感精選"
+      },
+      {
+        "description": "親子同行主題商品集合。",
+        "id": "family",
+        "image": {
+          "alt": "親子同行",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "stay-001",
+          "stay-003",
+          "stay-005",
+          "stay-007",
+          "stay-009",
+          "stay-011",
+          "cruise-001",
+          "cruise-003",
+          "cruise-005",
+          "cruise-007",
+          "cruise-009",
+          "cruise-011",
+          "tour-001",
+          "tour-003",
+          "tour-005",
+          "tour-007",
+          "tour-009",
+          "tour-011",
+          "activity-001",
+          "activity-003",
+          "activity-005",
+          "activity-007",
+          "activity-009",
+          "activity-011",
+          "transfer-001",
+          "transfer-003",
+          "transfer-005",
+          "transfer-007",
+          "transfer-009",
+          "transfer-011",
+          "esim-001",
+          "esim-003",
+          "esim-005",
+          "esim-007",
+          "esim-009",
+          "esim-011",
+          "sport-001",
+          "sport-003",
+          "sport-005",
+          "sport-007",
+          "sport-009",
+          "sport-011",
+          "rail-001",
+          "rail-003",
+          "rail-005",
+          "rail-007",
+          "rail-009",
+          "rail-011"
+        ],
+        "title": "親子同行"
+      },
+      {
+        "description": "露營與包棟主題商品集合。",
+        "id": "camping",
+        "image": {
+          "alt": "露營與包棟",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "stay-003",
+          "stay-004",
+          "stay-007",
+          "stay-008",
+          "stay-011",
+          "stay-012"
+        ],
+        "title": "露營與包棟"
+      }
+    ],
+    "destinations": [
+      {
+        "country_code": "TW",
+        "country_name": "台灣",
+        "description": "從台北的街區散步到在地餐桌，安排一段留有餘裕的旅行。",
+        "id": "taipei",
+        "image": {
+          "alt": "台北旅遊示意圖",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "latitude": 25.033,
+        "longitude": 121.565,
+        "name": "台北"
+      },
+      {
+        "country_code": "TW",
+        "country_name": "台灣",
+        "description": "從宜蘭的街區散步到在地餐桌，安排一段留有餘裕的旅行。",
+        "id": "yilan",
+        "image": {
+          "alt": "宜蘭旅遊示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "latitude": 24.757,
+        "longitude": 121.754,
+        "name": "宜蘭"
+      },
+      {
+        "country_code": "TW",
+        "country_name": "台灣",
+        "description": "從花蓮的街區散步到在地餐桌，安排一段留有餘裕的旅行。",
+        "id": "hualien",
+        "image": {
+          "alt": "花蓮旅遊示意圖",
+          "height": 800,
+          "url": "/images/tour.svg",
+          "width": 1200
+        },
+        "latitude": 23.987,
+        "longitude": 121.601,
+        "name": "花蓮"
+      },
+      {
+        "country_code": "TW",
+        "country_name": "台灣",
+        "description": "從台南的街區散步到在地餐桌，安排一段留有餘裕的旅行。",
+        "id": "tainan",
+        "image": {
+          "alt": "台南旅遊示意圖",
+          "height": 800,
+          "url": "/images/activity.svg",
+          "width": 1200
+        },
+        "latitude": 22.999,
+        "longitude": 120.227,
+        "name": "台南"
+      },
+      {
+        "country_code": "JP",
+        "country_name": "日本",
+        "description": "從東京的街區散步到在地餐桌，安排一段留有餘裕的旅行。",
+        "id": "tokyo",
+        "image": {
+          "alt": "東京旅遊示意圖",
+          "height": 800,
+          "url": "/images/transfer.svg",
+          "width": 1200
+        },
+        "latitude": 35.676,
+        "longitude": 139.65,
+        "name": "東京"
+      },
+      {
+        "country_code": "JP",
+        "country_name": "日本",
+        "description": "從京都的街區散步到在地餐桌，安排一段留有餘裕的旅行。",
+        "id": "kyoto",
+        "image": {
+          "alt": "京都旅遊示意圖",
+          "height": 800,
+          "url": "/images/esim.svg",
+          "width": 1200
+        },
+        "latitude": 35.011,
+        "longitude": 135.768,
+        "name": "京都"
+      }
+    ],
+    "hero": {
+      "image": {
+        "alt": "跟團旅遊示意圖",
+        "height": 800,
+        "url": "/images/tour.svg",
+        "width": 1200
+      },
+      "subtitle": "從一晚好眠到一段遠行，找到你的下一個旅行靈感。",
+      "title": "把日子，留給風景。"
+    },
+    "navigation": {
+      "footer": [
+        {
+          "links": [
+            {
+              "href": "/destinations",
+              "label": "目的地"
+            },
+            {
+              "href": "/collections",
+              "label": "主題旅遊"
+            },
+            {
+              "href": "/articles",
+              "label": "旅行靈感"
+            }
+          ],
+          "title": "探索旅行"
+        },
+        {
+          "links": [
+            {
+              "href": "/faqs",
+              "label": "常見問題"
+            },
+            {
+              "href": "/docs",
+              "label": "API 文件"
+            }
+          ],
+          "title": "支援與協助"
+        }
+      ],
+      "primary": [
+        {
+          "href": "/products?type=cruise",
+          "label": "郵輪"
+        },
+        {
+          "href": "/products?type=tour",
+          "label": "跟團旅遊"
+        },
+        {
+          "href": "/products?type=stay",
+          "label": "住宿"
+        },
+        {
+          "href": "/products?type=activity",
+          "label": "景點體驗"
+        },
+        {
+          "href": "/products?type=rail",
+          "label": "鐵道假期"
+        },
+        {
+          "href": "/products?type=sport",
+          "label": "運動旅遊"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "collection_id": "stay-picks",
+        "id": "stay-picks",
+        "more_url": "/collections/stay-picks",
+        "products": [
+          {
+            "amenities": [
+              "wifi",
+              "breakfast",
+              "parking"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台北｜木光旅宿示意圖",
+              "height": 800,
+              "url": "/images/stay.svg",
+              "width": 1200
+            },
+            "destination_id": "taipei",
+            "detail_url": "/api/v1/products/stay-001",
+            "duration_days": 1,
+            "free_cancellation": true,
+            "id": "stay-001",
+            "latitude": 25.033,
+            "location_name": "台灣・台北",
+            "longitude": 121.565,
+            "popularity": 1000,
+            "price": {
+              "amount": 2400,
+              "currency": "TWD",
+              "original_amount": 2880,
+              "tax_included": true,
+              "unit": "night"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台北為起點，享受從容的住宿時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "熱門推薦",
+              "飯店"
+            ],
+            "title": "台北｜木光旅宿",
+            "type": "stay"
+          },
+          {
+            "amenities": [
+              "wifi",
+              "breakfast",
+              "hot_spring"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "宜蘭｜溪畔溫泉小屋示意圖",
+              "height": 800,
+              "url": "/images/stay.svg",
+              "width": 1200
+            },
+            "destination_id": "yilan",
+            "detail_url": "/api/v1/products/stay-002",
+            "duration_days": 1,
+            "free_cancellation": false,
+            "id": "stay-002",
+            "latitude": 24.76,
+            "location_name": "台灣・宜蘭",
+            "longitude": 121.758,
+            "popularity": 977,
+            "price": {
+              "amount": 2550,
+              "currency": "TWD",
+              "original_amount": 3060,
+              "tax_included": true,
+              "unit": "night"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以宜蘭為起點，享受從容的住宿時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "慢遊精選",
+              "溫泉"
+            ],
+            "title": "宜蘭｜溪畔溫泉小屋",
+            "type": "stay"
+          },
+          {
+            "amenities": [
+              "wifi",
+              "breakfast"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "花蓮｜山嵐豪華露營示意圖",
+              "height": 800,
+              "url": "/images/stay.svg",
+              "width": 1200
+            },
+            "destination_id": "hualien",
+            "detail_url": "/api/v1/products/stay-003",
+            "duration_days": 1,
+            "free_cancellation": true,
+            "id": "stay-003",
+            "latitude": 23.993,
+            "location_name": "台灣・花蓮",
+            "longitude": 121.609,
+            "popularity": 954,
+            "price": {
+              "amount": 2700,
+              "currency": "TWD",
+              "original_amount": 3240,
+              "tax_included": true,
+              "unit": "night"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以花蓮為起點，享受從容的住宿時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "慢遊精選",
+              "露營"
+            ],
+            "title": "花蓮｜山嵐豪華露營",
+            "type": "stay"
+          },
+          {
+            "amenities": [
+              "wifi",
+              "breakfast",
+              "parking"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台南｜巷弄包棟寓所示意圖",
+              "height": 800,
+              "url": "/images/stay.svg",
+              "width": 1200
+            },
+            "destination_id": "tainan",
+            "detail_url": "/api/v1/products/stay-004",
+            "duration_days": 1,
+            "free_cancellation": false,
+            "id": "stay-004",
+            "latitude": 23.008,
+            "location_name": "台灣・台南",
+            "longitude": 120.227,
+            "popularity": 931,
+            "price": {
+              "amount": 2850,
+              "currency": "TWD",
+              "original_amount": 3420,
+              "tax_included": true,
+              "unit": "night"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台南為起點，享受從容的住宿時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "熱門推薦",
+              "包棟"
+            ],
+            "title": "台南｜巷弄包棟寓所",
+            "type": "stay"
+          }
+        ],
+        "title": "住宿靈感精選"
+      },
+      {
+        "collection_id": "cruise-picks",
+        "id": "cruise-picks",
+        "more_url": "/collections/cruise-picks",
+        "products": [
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "request",
+            "cover": {
+              "alt": "沖繩｜海風號跳島五日示意圖",
+              "height": 800,
+              "url": "/images/cruise.svg",
+              "width": 1200
+            },
+            "destination_id": "okinawa",
+            "detail_url": "/api/v1/products/cruise-001",
+            "duration_days": 5,
+            "free_cancellation": true,
+            "id": "cruise-001",
+            "latitude": 26.212,
+            "location_name": "日本・沖繩",
+            "longitude": 127.68,
+            "popularity": 993,
+            "price": {
+              "amount": 12900,
+              "currency": "TWD",
+              "original_amount": 15480,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以沖繩為起點，享受從容的郵輪時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "熱門推薦"
+            ],
+            "title": "沖繩｜海風號跳島五日",
+            "type": "cruise"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "request",
+            "cover": {
+              "alt": "新加坡｜晨星號海上假期五日示意圖",
+              "height": 800,
+              "url": "/images/cruise.svg",
+              "width": 1200
+            },
+            "destination_id": "singapore",
+            "detail_url": "/api/v1/products/cruise-002",
+            "duration_days": 5,
+            "free_cancellation": false,
+            "id": "cruise-002",
+            "latitude": 1.355,
+            "location_name": "新加坡・新加坡",
+            "longitude": 103.824,
+            "popularity": 970,
+            "price": {
+              "amount": 13900,
+              "currency": "TWD",
+              "original_amount": 16680,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以新加坡為起點，享受從容的郵輪時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "慢遊精選"
+            ],
+            "title": "新加坡｜晨星號海上假期五日",
+            "type": "cruise"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "request",
+            "cover": {
+              "alt": "東京｜遠洋號慢遊五日示意圖",
+              "height": 800,
+              "url": "/images/cruise.svg",
+              "width": 1200
+            },
+            "destination_id": "tokyo",
+            "detail_url": "/api/v1/products/cruise-003",
+            "duration_days": 5,
+            "free_cancellation": true,
+            "id": "cruise-003",
+            "latitude": 35.682,
+            "location_name": "日本・東京",
+            "longitude": 139.658,
+            "popularity": 947,
+            "price": {
+              "amount": 14900,
+              "currency": "TWD",
+              "original_amount": 17880,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以東京為起點，享受從容的郵輪時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "慢遊精選"
+            ],
+            "title": "東京｜遠洋號慢遊五日",
+            "type": "cruise"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "request",
+            "cover": {
+              "alt": "沖繩｜藍灣號親子航程五日示意圖",
+              "height": 800,
+              "url": "/images/cruise.svg",
+              "width": 1200
+            },
+            "destination_id": "okinawa",
+            "detail_url": "/api/v1/products/cruise-004",
+            "duration_days": 5,
+            "free_cancellation": false,
+            "id": "cruise-004",
+            "latitude": 26.221,
+            "location_name": "日本・沖繩",
+            "longitude": 127.68,
+            "popularity": 924,
+            "price": {
+              "amount": 15900,
+              "currency": "TWD",
+              "original_amount": 19080,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以沖繩為起點，享受從容的郵輪時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "熱門推薦"
+            ],
+            "title": "沖繩｜藍灣號親子航程五日",
+            "type": "cruise"
+          }
+        ],
+        "title": "郵輪靈感精選"
+      },
+      {
+        "collection_id": "tour-picks",
+        "id": "tour-picks",
+        "more_url": "/collections/tour-picks",
+        "products": [
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "request",
+            "cover": {
+              "alt": "台北｜溫泉與山城五日示意圖",
+              "height": 800,
+              "url": "/images/tour.svg",
+              "width": 1200
+            },
+            "destination_id": "taipei",
+            "detail_url": "/api/v1/products/tour-001",
+            "duration_days": 5,
+            "free_cancellation": true,
+            "id": "tour-001",
+            "latitude": 25.033,
+            "location_name": "台灣・台北",
+            "longitude": 121.565,
+            "popularity": 986,
+            "price": {
+              "amount": 24800,
+              "currency": "TWD",
+              "original_amount": 29760,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台北為起點，享受從容的跟團旅遊時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "熱門推薦"
+            ],
+            "title": "台北｜溫泉與山城五日",
+            "type": "tour"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "request",
+            "cover": {
+              "alt": "宜蘭｜街區美食五日示意圖",
+              "height": 800,
+              "url": "/images/tour.svg",
+              "width": 1200
+            },
+            "destination_id": "yilan",
+            "detail_url": "/api/v1/products/tour-002",
+            "duration_days": 5,
+            "free_cancellation": false,
+            "id": "tour-002",
+            "latitude": 24.76,
+            "location_name": "台灣・宜蘭",
+            "longitude": 121.758,
+            "popularity": 963,
+            "price": {
+              "amount": 25800,
+              "currency": "TWD",
+              "original_amount": 30960,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以宜蘭為起點，享受從容的跟團旅遊時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "慢遊精選"
+            ],
+            "title": "宜蘭｜街區美食五日",
+            "type": "tour"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "request",
+            "cover": {
+              "alt": "花蓮｜森林步道五日示意圖",
+              "height": 800,
+              "url": "/images/tour.svg",
+              "width": 1200
+            },
+            "destination_id": "hualien",
+            "detail_url": "/api/v1/products/tour-003",
+            "duration_days": 5,
+            "free_cancellation": true,
+            "id": "tour-003",
+            "latitude": 23.993,
+            "location_name": "台灣・花蓮",
+            "longitude": 121.609,
+            "popularity": 940,
+            "price": {
+              "amount": 26800,
+              "currency": "TWD",
+              "original_amount": 32160,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以花蓮為起點，享受從容的跟團旅遊時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "慢遊精選"
+            ],
+            "title": "花蓮｜森林步道五日",
+            "type": "tour"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "request",
+            "cover": {
+              "alt": "台南｜親子自然探索五日示意圖",
+              "height": 800,
+              "url": "/images/tour.svg",
+              "width": 1200
+            },
+            "destination_id": "tainan",
+            "detail_url": "/api/v1/products/tour-004",
+            "duration_days": 5,
+            "free_cancellation": false,
+            "id": "tour-004",
+            "latitude": 23.008,
+            "location_name": "台灣・台南",
+            "longitude": 120.227,
+            "popularity": 917,
+            "price": {
+              "amount": 27800,
+              "currency": "TWD",
+              "original_amount": 33360,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台南為起點，享受從容的跟團旅遊時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "熱門推薦"
+            ],
+            "title": "台南｜親子自然探索五日",
+            "type": "tour"
+          }
+        ],
+        "title": "跟團旅遊靈感精選"
+      },
+      {
+        "collection_id": "activity-picks",
+        "id": "activity-picks",
+        "more_url": "/collections/activity-picks",
+        "products": [
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台北｜城市散步與手作體驗示意圖",
+              "height": 800,
+              "url": "/images/activity.svg",
+              "width": 1200
+            },
+            "destination_id": "taipei",
+            "detail_url": "/api/v1/products/activity-001",
+            "duration_days": 1,
+            "free_cancellation": true,
+            "id": "activity-001",
+            "latitude": 25.033,
+            "location_name": "台灣・台北",
+            "longitude": 121.565,
+            "popularity": 979,
+            "price": {
+              "amount": 950,
+              "currency": "TWD",
+              "original_amount": 1140,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台北為起點，享受從容的景點體驗時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "熱門推薦"
+            ],
+            "title": "台北｜城市散步與手作體驗",
+            "type": "activity"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "宜蘭｜在地料理工作坊示意圖",
+              "height": 800,
+              "url": "/images/activity.svg",
+              "width": 1200
+            },
+            "destination_id": "yilan",
+            "detail_url": "/api/v1/products/activity-002",
+            "duration_days": 1,
+            "free_cancellation": false,
+            "id": "activity-002",
+            "latitude": 24.76,
+            "location_name": "台灣・宜蘭",
+            "longitude": 121.758,
+            "popularity": 956,
+            "price": {
+              "amount": 1100,
+              "currency": "TWD",
+              "original_amount": 1320,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以宜蘭為起點，享受從容的景點體驗時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "慢遊精選"
+            ],
+            "title": "宜蘭｜在地料理工作坊",
+            "type": "activity"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "花蓮｜森林導覽一日遊示意圖",
+              "height": 800,
+              "url": "/images/activity.svg",
+              "width": 1200
+            },
+            "destination_id": "hualien",
+            "detail_url": "/api/v1/products/activity-003",
+            "duration_days": 1,
+            "free_cancellation": true,
+            "id": "activity-003",
+            "latitude": 23.993,
+            "location_name": "台灣・花蓮",
+            "longitude": 121.609,
+            "popularity": 933,
+            "price": {
+              "amount": 1250,
+              "currency": "TWD",
+              "original_amount": 1500,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以花蓮為起點，享受從容的景點體驗時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "慢遊精選"
+            ],
+            "title": "花蓮｜森林導覽一日遊",
+            "type": "activity"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台南｜河岸單車體驗示意圖",
+              "height": 800,
+              "url": "/images/activity.svg",
+              "width": 1200
+            },
+            "destination_id": "tainan",
+            "detail_url": "/api/v1/products/activity-004",
+            "duration_days": 1,
+            "free_cancellation": false,
+            "id": "activity-004",
+            "latitude": 23.008,
+            "location_name": "台灣・台南",
+            "longitude": 120.227,
+            "popularity": 910,
+            "price": {
+              "amount": 1400,
+              "currency": "TWD",
+              "original_amount": 1680,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台南為起點，享受從容的景點體驗時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "熱門推薦"
+            ],
+            "title": "台南｜河岸單車體驗",
+            "type": "activity"
+          }
+        ],
+        "title": "景點體驗靈感精選"
+      },
+      {
+        "collection_id": "transfer-picks",
+        "id": "transfer-picks",
+        "more_url": "/collections/transfer-picks",
+        "products": [
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台北｜機場接送專車示意圖",
+              "height": 800,
+              "url": "/images/transfer.svg",
+              "width": 1200
+            },
+            "destination_id": "taipei",
+            "detail_url": "/api/v1/products/transfer-001",
+            "duration_days": 1,
+            "free_cancellation": true,
+            "id": "transfer-001",
+            "latitude": 25.033,
+            "location_name": "台灣・台北",
+            "longitude": 121.565,
+            "popularity": 972,
+            "price": {
+              "amount": 1800,
+              "currency": "TWD",
+              "original_amount": 2160,
+              "tax_included": true,
+              "unit": "vehicle"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台北為起點，享受從容的包車接送時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "熱門推薦"
+            ],
+            "title": "台北｜機場接送專車",
+            "type": "transfer"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "宜蘭｜港口接送專車示意圖",
+              "height": 800,
+              "url": "/images/transfer.svg",
+              "width": 1200
+            },
+            "destination_id": "yilan",
+            "detail_url": "/api/v1/products/transfer-002",
+            "duration_days": 1,
+            "free_cancellation": false,
+            "id": "transfer-002",
+            "latitude": 24.76,
+            "location_name": "台灣・宜蘭",
+            "longitude": 121.758,
+            "popularity": 949,
+            "price": {
+              "amount": 1950,
+              "currency": "TWD",
+              "original_amount": 2340,
+              "tax_included": true,
+              "unit": "vehicle"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以宜蘭為起點，享受從容的包車接送時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "慢遊精選"
+            ],
+            "title": "宜蘭｜港口接送專車",
+            "type": "transfer"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "花蓮｜市區包車六小時示意圖",
+              "height": 800,
+              "url": "/images/transfer.svg",
+              "width": 1200
+            },
+            "destination_id": "hualien",
+            "detail_url": "/api/v1/products/transfer-003",
+            "duration_days": 1,
+            "free_cancellation": true,
+            "id": "transfer-003",
+            "latitude": 23.993,
+            "location_name": "台灣・花蓮",
+            "longitude": 121.609,
+            "popularity": 926,
+            "price": {
+              "amount": 2100,
+              "currency": "TWD",
+              "original_amount": 2520,
+              "tax_included": true,
+              "unit": "vehicle"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以花蓮為起點，享受從容的包車接送時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "慢遊精選"
+            ],
+            "title": "花蓮｜市區包車六小時",
+            "type": "transfer"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台南｜近郊包車八小時示意圖",
+              "height": 800,
+              "url": "/images/transfer.svg",
+              "width": 1200
+            },
+            "destination_id": "tainan",
+            "detail_url": "/api/v1/products/transfer-004",
+            "duration_days": 1,
+            "free_cancellation": false,
+            "id": "transfer-004",
+            "latitude": 23.008,
+            "location_name": "台灣・台南",
+            "longitude": 120.227,
+            "popularity": 903,
+            "price": {
+              "amount": 2250,
+              "currency": "TWD",
+              "original_amount": 2700,
+              "tax_included": true,
+              "unit": "vehicle"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台南為起點，享受從容的包車接送時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "熱門推薦"
+            ],
+            "title": "台南｜近郊包車八小時",
+            "type": "transfer"
+          }
+        ],
+        "title": "包車接送靈感精選"
+      },
+      {
+        "collection_id": "esim-picks",
+        "id": "esim-picks",
+        "more_url": "/collections/esim-picks",
+        "products": [
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台北｜五日上網卡示意圖",
+              "height": 800,
+              "url": "/images/esim.svg",
+              "width": 1200
+            },
+            "destination_id": "taipei",
+            "detail_url": "/api/v1/products/esim-001",
+            "duration_days": 5,
+            "free_cancellation": true,
+            "id": "esim-001",
+            "latitude": 25.033,
+            "location_name": "台灣・台北",
+            "longitude": 121.565,
+            "popularity": 965,
+            "price": {
+              "amount": 290,
+              "currency": "TWD",
+              "original_amount": 348,
+              "tax_included": true,
+              "unit": "package"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台北為起點，享受從容的eSIM時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "熱門推薦"
+            ],
+            "title": "台北｜五日上網卡",
+            "type": "esim"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "宜蘭｜五日輕量上網卡示意圖",
+              "height": 800,
+              "url": "/images/esim.svg",
+              "width": 1200
+            },
+            "destination_id": "yilan",
+            "detail_url": "/api/v1/products/esim-002",
+            "duration_days": 5,
+            "free_cancellation": false,
+            "id": "esim-002",
+            "latitude": 24.76,
+            "location_name": "台灣・宜蘭",
+            "longitude": 121.758,
+            "popularity": 942,
+            "price": {
+              "amount": 440,
+              "currency": "TWD",
+              "original_amount": 528,
+              "tax_included": true,
+              "unit": "package"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以宜蘭為起點，享受從容的eSIM時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "慢遊精選"
+            ],
+            "title": "宜蘭｜五日輕量上網卡",
+            "type": "esim"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "花蓮｜五日旅遊數據卡示意圖",
+              "height": 800,
+              "url": "/images/esim.svg",
+              "width": 1200
+            },
+            "destination_id": "hualien",
+            "detail_url": "/api/v1/products/esim-003",
+            "duration_days": 5,
+            "free_cancellation": true,
+            "id": "esim-003",
+            "latitude": 23.993,
+            "location_name": "台灣・花蓮",
+            "longitude": 121.609,
+            "popularity": 919,
+            "price": {
+              "amount": 590,
+              "currency": "TWD",
+              "original_amount": 708,
+              "tax_included": true,
+              "unit": "package"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以花蓮為起點，享受從容的eSIM時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "慢遊精選"
+            ],
+            "title": "花蓮｜五日旅遊數據卡",
+            "type": "esim"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台南｜五日高速上網卡示意圖",
+              "height": 800,
+              "url": "/images/esim.svg",
+              "width": 1200
+            },
+            "destination_id": "tainan",
+            "detail_url": "/api/v1/products/esim-004",
+            "duration_days": 5,
+            "free_cancellation": false,
+            "id": "esim-004",
+            "latitude": 23.008,
+            "location_name": "台灣・台南",
+            "longitude": 120.227,
+            "popularity": 896,
+            "price": {
+              "amount": 740,
+              "currency": "TWD",
+              "original_amount": 888,
+              "tax_included": true,
+              "unit": "package"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台南為起點，享受從容的eSIM時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "熱門推薦"
+            ],
+            "title": "台南｜五日高速上網卡",
+            "type": "esim"
+          }
+        ],
+        "title": "eSIM靈感精選"
+      },
+      {
+        "collection_id": "sport-picks",
+        "id": "sport-picks",
+        "more_url": "/collections/sport-picks",
+        "products": [
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台北｜城市路跑三日套裝示意圖",
+              "height": 800,
+              "url": "/images/sport.svg",
+              "width": 1200
+            },
+            "destination_id": "taipei",
+            "detail_url": "/api/v1/products/sport-001",
+            "duration_days": 3,
+            "free_cancellation": true,
+            "id": "sport-001",
+            "latitude": 25.033,
+            "location_name": "台灣・台北",
+            "longitude": 121.565,
+            "popularity": 958,
+            "price": {
+              "amount": 8900,
+              "currency": "TWD",
+              "original_amount": 10680,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台北為起點，享受從容的運動旅遊時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "熱門推薦"
+            ],
+            "title": "台北｜城市路跑三日套裝",
+            "type": "sport"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "宜蘭｜單車慢遊三日示意圖",
+              "height": 800,
+              "url": "/images/sport.svg",
+              "width": 1200
+            },
+            "destination_id": "yilan",
+            "detail_url": "/api/v1/products/sport-002",
+            "duration_days": 3,
+            "free_cancellation": false,
+            "id": "sport-002",
+            "latitude": 24.76,
+            "location_name": "台灣・宜蘭",
+            "longitude": 121.758,
+            "popularity": 935,
+            "price": {
+              "amount": 9900,
+              "currency": "TWD",
+              "original_amount": 11880,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以宜蘭為起點，享受從容的運動旅遊時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "慢遊精選"
+            ],
+            "title": "宜蘭｜單車慢遊三日",
+            "type": "sport"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "花蓮｜雪地初學三日營示意圖",
+              "height": 800,
+              "url": "/images/sport.svg",
+              "width": 1200
+            },
+            "destination_id": "hualien",
+            "detail_url": "/api/v1/products/sport-003",
+            "duration_days": 3,
+            "free_cancellation": true,
+            "id": "sport-003",
+            "latitude": 23.993,
+            "location_name": "台灣・花蓮",
+            "longitude": 121.609,
+            "popularity": 912,
+            "price": {
+              "amount": 10900,
+              "currency": "TWD",
+              "original_amount": 13080,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以花蓮為起點，享受從容的運動旅遊時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "慢遊精選"
+            ],
+            "title": "花蓮｜雪地初學三日營",
+            "type": "sport"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台南｜山徑健行三日示意圖",
+              "height": 800,
+              "url": "/images/sport.svg",
+              "width": 1200
+            },
+            "destination_id": "tainan",
+            "detail_url": "/api/v1/products/sport-004",
+            "duration_days": 3,
+            "free_cancellation": false,
+            "id": "sport-004",
+            "latitude": 23.008,
+            "location_name": "台灣・台南",
+            "longitude": 120.227,
+            "popularity": 889,
+            "price": {
+              "amount": 11900,
+              "currency": "TWD",
+              "original_amount": 14280,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台南為起點，享受從容的運動旅遊時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "熱門推薦"
+            ],
+            "title": "台南｜山徑健行三日",
+            "type": "sport"
+          }
+        ],
+        "title": "運動旅遊靈感精選"
+      },
+      {
+        "collection_id": "rail-picks",
+        "id": "rail-picks",
+        "more_url": "/collections/rail-picks",
+        "products": [
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台北｜鐵道與散步一日示意圖",
+              "height": 800,
+              "url": "/images/rail.svg",
+              "width": 1200
+            },
+            "destination_id": "taipei",
+            "detail_url": "/api/v1/products/rail-001",
+            "duration_days": 1,
+            "free_cancellation": true,
+            "id": "rail-001",
+            "latitude": 25.033,
+            "location_name": "台灣・台北",
+            "longitude": 121.565,
+            "popularity": 951,
+            "price": {
+              "amount": 1600,
+              "currency": "TWD",
+              "original_amount": 1920,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台北為起點，享受從容的鐵道假期時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "熱門推薦"
+            ],
+            "title": "台北｜鐵道與散步一日",
+            "type": "rail"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "宜蘭｜鐵道美食一日示意圖",
+              "height": 800,
+              "url": "/images/rail.svg",
+              "width": 1200
+            },
+            "destination_id": "yilan",
+            "detail_url": "/api/v1/products/rail-002",
+            "duration_days": 1,
+            "free_cancellation": false,
+            "id": "rail-002",
+            "latitude": 24.76,
+            "location_name": "台灣・宜蘭",
+            "longitude": 121.758,
+            "popularity": 928,
+            "price": {
+              "amount": 1750,
+              "currency": "TWD",
+              "original_amount": 2100,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以宜蘭為起點，享受從容的鐵道假期時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "慢遊精選"
+            ],
+            "title": "宜蘭｜鐵道美食一日",
+            "type": "rail"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台南｜車站周邊一日示意圖",
+              "height": 800,
+              "url": "/images/rail.svg",
+              "width": 1200
+            },
+            "destination_id": "tainan",
+            "detail_url": "/api/v1/products/rail-003",
+            "duration_days": 1,
+            "free_cancellation": true,
+            "id": "rail-003",
+            "latitude": 23.005,
+            "location_name": "台灣・台南",
+            "longitude": 120.235,
+            "popularity": 905,
+            "price": {
+              "amount": 1900,
+              "currency": "TWD",
+              "original_amount": 2280,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台南為起點，享受從容的鐵道假期時光。所有內容皆為測試假資料。",
+            "tags": [
+              "親子友善",
+              "慢遊精選"
+            ],
+            "title": "台南｜車站周邊一日",
+            "type": "rail"
+          },
+          {
+            "amenities": [
+              "chinese_service",
+              "guide"
+            ],
+            "confirmation": "instant",
+            "cover": {
+              "alt": "台北｜鐵道文化一日示意圖",
+              "height": 800,
+              "url": "/images/rail.svg",
+              "width": 1200
+            },
+            "destination_id": "taipei",
+            "detail_url": "/api/v1/products/rail-004",
+            "duration_days": 1,
+            "free_cancellation": false,
+            "id": "rail-004",
+            "latitude": 25.042,
+            "location_name": "台灣・台北",
+            "longitude": 121.565,
+            "popularity": 882,
+            "price": {
+              "amount": 2050,
+              "currency": "TWD",
+              "original_amount": 2460,
+              "tax_included": true,
+              "unit": "person"
+            },
+            "rating": {
+              "average": 4.6,
+              "count": 5
+            },
+            "summary": "以台北為起點，享受從容的鐵道假期時光。所有內容皆為測試假資料。",
+            "tags": [
+              "雙人出遊",
+              "熱門推薦"
+            ],
+            "title": "台北｜鐵道文化一日",
+            "type": "rail"
+          }
+        ],
+        "title": "鐵道假期靈感精選"
+      }
+    ]
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

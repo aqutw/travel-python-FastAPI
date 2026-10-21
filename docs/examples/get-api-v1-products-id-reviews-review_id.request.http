@@ -1,0 +1,6 @@
+GET /api/v1/products/stay-001/reviews/{{review_id}} HTTP/1.1
+Host: localhost:8000
+Accept: application/json
+X-Request-ID: example-request-0001
+X-API-Key: {{API_WRITE_KEY}}
+

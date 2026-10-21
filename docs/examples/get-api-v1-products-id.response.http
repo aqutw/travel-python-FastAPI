@@ -1,0 +1,200 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "address": "沖繩示範街 1 號（虛構地址）",
+    "amenities": [
+      "chinese_service",
+      "guide"
+    ],
+    "cancellation_policy": "出發前七日可免費取消。",
+    "confirmation": "request",
+    "cover": {
+      "alt": "沖繩｜海風號跳島五日示意圖",
+      "height": 800,
+      "url": "/images/cruise.svg",
+      "width": 1200
+    },
+    "cruise": {
+      "cabins": [
+        {
+          "amenities": [
+            "chinese_service",
+            "guide"
+          ],
+          "capacity": 2,
+          "description": "內艙雙人房，提供測試用價格與容量。",
+          "id": "cruise-001-opt-1",
+          "image": {
+            "alt": "內艙雙人房示意圖",
+            "height": 800,
+            "url": "/images/cruise.svg",
+            "width": 1200
+          },
+          "name": "內艙雙人房",
+          "price": {
+            "amount": 12900,
+            "currency": "TWD",
+            "original_amount": 15480,
+            "tax_included": true,
+            "unit": "person"
+          }
+        },
+        {
+          "amenities": [
+            "chinese_service",
+            "guide"
+          ],
+          "capacity": 4,
+          "description": "陽台四人房，提供測試用價格與容量。",
+          "id": "cruise-001-opt-2",
+          "image": {
+            "alt": "陽台四人房示意圖",
+            "height": 800,
+            "url": "/images/cruise.svg",
+            "width": 1200
+          },
+          "name": "陽台四人房",
+          "price": {
+            "amount": 15400,
+            "currency": "TWD",
+            "original_amount": 18480,
+            "tax_included": true,
+            "unit": "person"
+          }
+        }
+      ],
+      "cruise_line": "藍灣假期（虛構品牌）",
+      "departure_port": "基隆港",
+      "itinerary": [
+        {
+          "accommodation": "船上住宿",
+          "day": 1,
+          "description": "第 1 天探索在地景色，保留彈性自由活動時間。",
+          "meals": [
+            "早餐",
+            "晚餐"
+          ],
+          "title": "沖繩・啟程與相遇"
+        },
+        {
+          "accommodation": "船上住宿",
+          "day": 2,
+          "description": "第 2 天探索在地景色，保留彈性自由活動時間。",
+          "meals": [
+            "早餐",
+            "晚餐"
+          ],
+          "title": "沖繩・街區探索"
+        },
+        {
+          "accommodation": "船上住宿",
+          "day": 3,
+          "description": "第 3 天探索在地景色，保留彈性自由活動時間。",
+          "meals": [
+            "早餐",
+            "晚餐"
+          ],
+          "title": "沖繩・自然漫遊"
+        },
+        {
+          "accommodation": "船上住宿",
+          "day": 4,
+          "description": "第 4 天探索在地景色，保留彈性自由活動時間。",
+          "meals": [
+            "早餐",
+            "晚餐"
+          ],
+          "title": "沖繩・在地生活"
+        },
+        {
+          "accommodation": "船上住宿",
+          "day": 5,
+          "description": "第 5 天探索在地景色，保留彈性自由活動時間。",
+          "meals": [
+            "早餐",
+            "晚餐"
+          ],
+          "title": "沖繩・悠閒返程"
+        }
+      ],
+      "route": "基隆港－沖繩－海上巡遊－基隆港",
+      "ship_name": "海風號"
+    },
+    "description": "這是原創的郵輪示範商品。保留探索沖繩的時間，讓行程留白，讓風景成為旅程的主角。",
+    "destination_id": "okinawa",
+    "detail_url": "/api/v1/products/cruise-001",
+    "duration_days": 5,
+    "excluded": [
+      "個人購物",
+      "未列明的加購服務"
+    ],
+    "free_cancellation": true,
+    "highlights": [
+      "在地風格體驗",
+      "繁體中文資訊",
+      "清楚的方案內容"
+    ],
+    "id": "cruise-001",
+    "images": [
+      {
+        "alt": "沖繩｜海風號跳島五日示意圖",
+        "height": 800,
+        "url": "/images/cruise.svg",
+        "width": 1200
+      },
+      {
+        "alt": "周邊環境示意圖",
+        "height": 800,
+        "url": "/images/tour.svg",
+        "width": 1200
+      },
+      {
+        "alt": "休憩空間示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      }
+    ],
+    "included": [
+      "方案所列服務",
+      "示範稅金"
+    ],
+    "latitude": 26.212,
+    "location_name": "日本・沖繩",
+    "longitude": 127.68,
+    "notices": [
+      "所有商品、評價、優惠與庫存皆為虛構。",
+      "插畫為示意用途，非實景照片。"
+    ],
+    "popularity": 993,
+    "price": {
+      "amount": 12900,
+      "currency": "TWD",
+      "original_amount": 15480,
+      "tax_included": true,
+      "unit": "person"
+    },
+    "rating": {
+      "average": 4.6,
+      "count": 5
+    },
+    "summary": "以沖繩為起點，享受從容的郵輪時光。所有內容皆為測試假資料。",
+    "tags": [
+      "親子友善",
+      "熱門推薦"
+    ],
+    "title": "沖繩｜海風號跳島五日",
+    "type": "cruise"
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

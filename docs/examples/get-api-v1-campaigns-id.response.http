@@ -1,0 +1,33 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "collection_id": "stay-picks",
+    "coupon_code": "DEMO100",
+    "description": "原創虛構優惠，僅供前端畫面展示。",
+    "discount_amount": 100,
+    "id": "escape-stay",
+    "image": {
+      "alt": "優惠活動示意圖",
+      "height": 800,
+      "url": "/images/stay.svg",
+      "width": 1200
+    },
+    "minimum_spend": 3000,
+    "terms": [
+      "僅供開發測試。",
+      "不適用任何真實訂單。"
+    ],
+    "title": "住進週末的留白"
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

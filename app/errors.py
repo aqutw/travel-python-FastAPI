@@ -1,9 +1,10 @@
 class APIError(Exception):
-    def __init__(self, status: int, code: str, message: str):
+    def __init__(self, status: int, code: str, message: str, fields: list[dict] | None = None):
         super().__init__(message)
         self.status = status
         self.code = code
         self.message = message
+        self.fields = fields
 
 
 def invalid(field: str, message: str):
@@ -12,3 +13,7 @@ def invalid(field: str, message: str):
 
 def not_found(resource: str):
     raise APIError(404, "not_found", f"{resource} not found")
+
+
+def invalid_body(field: str, rule: str):
+    raise APIError(400, "invalid_body", "JSON body validation failed", [{"field": field, "rule": rule}])

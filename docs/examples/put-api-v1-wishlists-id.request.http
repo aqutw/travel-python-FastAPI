@@ -1,0 +1,15 @@
+PUT /api/v1/wishlists/{{wishlist_id}} HTTP/1.1
+Host: localhost:8000
+Accept: application/json
+X-Request-ID: example-request-0001
+X-API-Key: {{API_WRITE_KEY}}
+Content-Type: application/json
+
+{
+  "title": "親子住宿",
+  "description": "更新候選",
+  "product_ids": [
+    "stay-002"
+  ],
+  "version": 1
+}

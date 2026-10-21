@@ -1,0 +1,23 @@
+PUT /api/v1/trips/{{trip_id}} HTTP/1.1
+Host: localhost:8000
+Accept: application/json
+X-Request-ID: example-request-0001
+X-API-Key: {{API_WRITE_KEY}}
+Content-Type: application/json
+
+{
+  "title": "台北兩日",
+  "start_date": "2026-11-01",
+  "end_date": "2026-11-03",
+  "adults": 2,
+  "children": 0,
+  "items": [
+    {
+      "product_id": "stay-001",
+      "day": 1,
+      "notes": "入住"
+    }
+  ],
+  "notes": "更新行程：安排早餐與散步",
+  "version": 1
+}

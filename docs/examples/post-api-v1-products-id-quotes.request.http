@@ -1,0 +1,13 @@
+POST /api/v1/products/stay-001/quotes HTTP/1.1
+Host: localhost:8000
+Accept: application/json
+X-Request-ID: example-request-0001
+Content-Type: application/json
+
+{
+  "start_date": "2026-11-01",
+  "end_date": "2026-11-03",
+  "adults": 2,
+  "children": 0,
+  "quantity": 1
+}

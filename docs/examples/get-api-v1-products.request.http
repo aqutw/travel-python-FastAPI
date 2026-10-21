@@ -1,0 +1,5 @@
+GET /api/v1/products?destination_id=taipei&per_page=1&type=stay HTTP/1.1
+Host: localhost:8000
+Accept: application/json
+X-Request-ID: example-request-0001
+

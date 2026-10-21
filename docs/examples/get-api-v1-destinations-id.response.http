@@ -1,0 +1,511 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "collections": [
+      {
+        "description": "從熱門目的地出發，尋找適合自己的住宿方案。",
+        "id": "stay-picks",
+        "image": {
+          "alt": "住宿主題示意圖",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "stay-001",
+          "stay-002",
+          "stay-003",
+          "stay-004",
+          "stay-005",
+          "stay-006",
+          "stay-007",
+          "stay-008",
+          "stay-009",
+          "stay-010",
+          "stay-011",
+          "stay-012"
+        ],
+        "title": "住宿靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的郵輪方案。",
+        "id": "cruise-picks",
+        "image": {
+          "alt": "郵輪主題示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "cruise-001",
+          "cruise-002",
+          "cruise-003",
+          "cruise-004",
+          "cruise-005",
+          "cruise-006",
+          "cruise-007",
+          "cruise-008",
+          "cruise-009",
+          "cruise-010",
+          "cruise-011",
+          "cruise-012"
+        ],
+        "title": "郵輪靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的跟團旅遊方案。",
+        "id": "tour-picks",
+        "image": {
+          "alt": "跟團旅遊主題示意圖",
+          "height": 800,
+          "url": "/images/tour.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "tour-001",
+          "tour-002",
+          "tour-003",
+          "tour-004",
+          "tour-005",
+          "tour-006",
+          "tour-007",
+          "tour-008",
+          "tour-009",
+          "tour-010",
+          "tour-011",
+          "tour-012"
+        ],
+        "title": "跟團旅遊靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的景點體驗方案。",
+        "id": "activity-picks",
+        "image": {
+          "alt": "景點體驗主題示意圖",
+          "height": 800,
+          "url": "/images/activity.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "activity-001",
+          "activity-002",
+          "activity-003",
+          "activity-004",
+          "activity-005",
+          "activity-006",
+          "activity-007",
+          "activity-008",
+          "activity-009",
+          "activity-010",
+          "activity-011",
+          "activity-012"
+        ],
+        "title": "景點體驗靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的包車接送方案。",
+        "id": "transfer-picks",
+        "image": {
+          "alt": "包車接送主題示意圖",
+          "height": 800,
+          "url": "/images/transfer.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "transfer-001",
+          "transfer-002",
+          "transfer-003",
+          "transfer-004",
+          "transfer-005",
+          "transfer-006",
+          "transfer-007",
+          "transfer-008",
+          "transfer-009",
+          "transfer-010",
+          "transfer-011",
+          "transfer-012"
+        ],
+        "title": "包車接送靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的eSIM方案。",
+        "id": "esim-picks",
+        "image": {
+          "alt": "eSIM主題示意圖",
+          "height": 800,
+          "url": "/images/esim.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "esim-001",
+          "esim-002",
+          "esim-003",
+          "esim-004",
+          "esim-005",
+          "esim-006",
+          "esim-007",
+          "esim-008",
+          "esim-009",
+          "esim-010",
+          "esim-011",
+          "esim-012"
+        ],
+        "title": "eSIM靈感精選"
+      },
+      {
+        "description": "從熱門目的地出發，尋找適合自己的運動旅遊方案。",
+        "id": "sport-picks",
+        "image": {
+          "alt": "運動旅遊主題示意圖",
+          "height": 800,
+          "url": "/images/sport.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "sport-001",
+          "sport-002",
+          "sport-003",
+          "sport-004",
+          "sport-005",
+          "sport-006",
+          "sport-007",
+          "sport-008",
+          "sport-009",
+          "sport-010",
+          "sport-011",
+          "sport-012"
+        ],
+        "title": "運動旅遊靈感精選"
+      },
+      {
+        "description": "親子同行主題商品集合。",
+        "id": "family",
+        "image": {
+          "alt": "親子同行",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "product_ids": [
+          "stay-001",
+          "stay-003",
+          "stay-005",
+          "stay-007",
+          "stay-009",
+          "stay-011",
+          "cruise-001",
+          "cruise-003",
+          "cruise-005",
+          "cruise-007",
+          "cruise-009",
+          "cruise-011",
+          "tour-001",
+          "tour-003",
+          "tour-005",
+          "tour-007",
+          "tour-009",
+          "tour-011",
+          "activity-001",
+          "activity-003",
+          "activity-005",
+          "activity-007",
+          "activity-009",
+          "activity-011",
+          "transfer-001",
+          "transfer-003",
+          "transfer-005",
+          "transfer-007",
+          "transfer-009",
+          "transfer-011",
+          "esim-001",
+          "esim-003",
+          "esim-005",
+          "esim-007",
+          "esim-009",
+          "esim-011",
+          "sport-001",
+          "sport-003",
+          "sport-005",
+          "sport-007",
+          "sport-009",
+          "sport-011",
+          "rail-001",
+          "rail-003",
+          "rail-005",
+          "rail-007",
+          "rail-009",
+          "rail-011"
+        ],
+        "title": "親子同行"
+      }
+    ],
+    "country_code": "JP",
+    "country_name": "日本",
+    "description": "從東京的街區散步到在地餐桌，安排一段留有餘裕的旅行。",
+    "featured_products": [
+      {
+        "amenities": [
+          "wifi",
+          "breakfast"
+        ],
+        "confirmation": "instant",
+        "cover": {
+          "alt": "東京｜木光旅宿示意圖",
+          "height": 800,
+          "url": "/images/stay.svg",
+          "width": 1200
+        },
+        "destination_id": "tokyo",
+        "detail_url": "/api/v1/products/stay-005",
+        "duration_days": 1,
+        "free_cancellation": true,
+        "id": "stay-005",
+        "latitude": 35.676,
+        "location_name": "日本・東京",
+        "longitude": 139.654,
+        "popularity": 908,
+        "price": {
+          "amount": 3000,
+          "currency": "TWD",
+          "original_amount": 3600,
+          "tax_included": true,
+          "unit": "night"
+        },
+        "rating": {
+          "average": 4.6,
+          "count": 5
+        },
+        "summary": "以東京為起點，享受從容的住宿時光。所有內容皆為測試假資料。",
+        "tags": [
+          "親子友善",
+          "慢遊精選",
+          "飯店"
+        ],
+        "title": "東京｜木光旅宿",
+        "type": "stay"
+      },
+      {
+        "amenities": [
+          "chinese_service",
+          "guide"
+        ],
+        "confirmation": "request",
+        "cover": {
+          "alt": "東京｜遠洋號慢遊五日示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "destination_id": "tokyo",
+        "detail_url": "/api/v1/products/cruise-003",
+        "duration_days": 5,
+        "free_cancellation": true,
+        "id": "cruise-003",
+        "latitude": 35.682,
+        "location_name": "日本・東京",
+        "longitude": 139.658,
+        "popularity": 947,
+        "price": {
+          "amount": 14900,
+          "currency": "TWD",
+          "original_amount": 17880,
+          "tax_included": true,
+          "unit": "person"
+        },
+        "rating": {
+          "average": 4.6,
+          "count": 5
+        },
+        "summary": "以東京為起點，享受從容的郵輪時光。所有內容皆為測試假資料。",
+        "tags": [
+          "親子友善",
+          "慢遊精選"
+        ],
+        "title": "東京｜遠洋號慢遊五日",
+        "type": "cruise"
+      },
+      {
+        "amenities": [
+          "chinese_service",
+          "guide"
+        ],
+        "confirmation": "request",
+        "cover": {
+          "alt": "東京｜晨星號海上假期五日示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "destination_id": "tokyo",
+        "detail_url": "/api/v1/products/cruise-006",
+        "duration_days": 5,
+        "free_cancellation": false,
+        "id": "cruise-006",
+        "latitude": 35.679,
+        "location_name": "日本・東京",
+        "longitude": 139.658,
+        "popularity": 878,
+        "price": {
+          "amount": 17900,
+          "currency": "TWD",
+          "original_amount": 21480,
+          "tax_included": true,
+          "unit": "person"
+        },
+        "rating": {
+          "average": 4.6,
+          "count": 5
+        },
+        "summary": "以東京為起點，享受從容的郵輪時光。所有內容皆為測試假資料。",
+        "tags": [
+          "雙人出遊",
+          "慢遊精選"
+        ],
+        "title": "東京｜晨星號海上假期五日",
+        "type": "cruise"
+      },
+      {
+        "amenities": [
+          "chinese_service",
+          "guide"
+        ],
+        "confirmation": "request",
+        "cover": {
+          "alt": "東京｜海風號跳島五日示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "destination_id": "tokyo",
+        "detail_url": "/api/v1/products/cruise-009",
+        "duration_days": 5,
+        "free_cancellation": true,
+        "id": "cruise-009",
+        "latitude": 35.676,
+        "location_name": "日本・東京",
+        "longitude": 139.658,
+        "popularity": 809,
+        "price": {
+          "amount": 14900,
+          "currency": "TWD",
+          "original_amount": 17880,
+          "tax_included": true,
+          "unit": "person"
+        },
+        "rating": {
+          "average": 4.6,
+          "count": 5
+        },
+        "summary": "以東京為起點，享受從容的郵輪時光。所有內容皆為測試假資料。",
+        "tags": [
+          "親子友善",
+          "慢遊精選"
+        ],
+        "title": "東京｜海風號跳島五日",
+        "type": "cruise"
+      },
+      {
+        "amenities": [
+          "chinese_service",
+          "guide"
+        ],
+        "confirmation": "request",
+        "cover": {
+          "alt": "東京｜藍灣號親子航程五日示意圖",
+          "height": 800,
+          "url": "/images/cruise.svg",
+          "width": 1200
+        },
+        "destination_id": "tokyo",
+        "detail_url": "/api/v1/products/cruise-012",
+        "duration_days": 5,
+        "free_cancellation": false,
+        "id": "cruise-012",
+        "latitude": 35.685,
+        "location_name": "日本・東京",
+        "longitude": 139.658,
+        "popularity": 740,
+        "price": {
+          "amount": 17900,
+          "currency": "TWD",
+          "original_amount": 21480,
+          "tax_included": true,
+          "unit": "person"
+        },
+        "rating": {
+          "average": 4.6,
+          "count": 5
+        },
+        "summary": "以東京為起點，享受從容的郵輪時光。所有內容皆為測試假資料。",
+        "tags": [
+          "雙人出遊",
+          "慢遊精選"
+        ],
+        "title": "東京｜藍灣號親子航程五日",
+        "type": "cruise"
+      },
+      {
+        "amenities": [
+          "chinese_service",
+          "guide"
+        ],
+        "confirmation": "request",
+        "cover": {
+          "alt": "東京｜溫泉與山城五日示意圖",
+          "height": 800,
+          "url": "/images/tour.svg",
+          "width": 1200
+        },
+        "destination_id": "tokyo",
+        "detail_url": "/api/v1/products/tour-005",
+        "duration_days": 5,
+        "free_cancellation": true,
+        "id": "tour-005",
+        "latitude": 35.676,
+        "location_name": "日本・東京",
+        "longitude": 139.654,
+        "popularity": 894,
+        "price": {
+          "amount": 28800,
+          "currency": "TWD",
+          "original_amount": 34560,
+          "tax_included": true,
+          "unit": "person"
+        },
+        "rating": {
+          "average": 4.6,
+          "count": 5
+        },
+        "summary": "以東京為起點，享受從容的跟團旅遊時光。所有內容皆為測試假資料。",
+        "tags": [
+          "親子友善",
+          "慢遊精選"
+        ],
+        "title": "東京｜溫泉與山城五日",
+        "type": "tour"
+      }
+    ],
+    "id": "tokyo",
+    "image": {
+      "alt": "東京旅遊示意圖",
+      "height": 800,
+      "url": "/images/transfer.svg",
+      "width": 1200
+    },
+    "latitude": 35.676,
+    "longitude": 139.65,
+    "name": "東京",
+    "product_count": 10
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

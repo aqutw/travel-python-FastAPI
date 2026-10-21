@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Location: /api/v1/products/stay-001/reviews/{{review_id}}
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "author": "測試旅人",
+    "content": "交通便利，房間舒適；早餐選擇可以更多。",
+    "created_at": "2026-10-20",
+    "id": "{{review_id}}",
+    "product_id": "stay-001",
+    "rating": 4,
+    "travel_date": "2026-10-01",
+    "version": 2
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

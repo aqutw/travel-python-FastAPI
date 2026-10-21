@@ -1,0 +1,62 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "amenities": [
+        "chinese_service",
+        "guide"
+      ],
+      "capacity": 8,
+      "description": "標準方案，提供測試用價格與容量。",
+      "id": "activity-001-opt-1",
+      "image": {
+        "alt": "標準方案示意圖",
+        "height": 800,
+        "url": "/images/activity.svg",
+        "width": 1200
+      },
+      "name": "標準方案",
+      "price": {
+        "amount": 950,
+        "currency": "TWD",
+        "original_amount": 1140,
+        "tax_included": true,
+        "unit": "person"
+      }
+    },
+    {
+      "amenities": [
+        "chinese_service",
+        "guide"
+      ],
+      "capacity": 8,
+      "description": "升級方案，提供測試用價格與容量。",
+      "id": "activity-001-opt-2",
+      "image": {
+        "alt": "升級方案示意圖",
+        "height": 800,
+        "url": "/images/activity.svg",
+        "width": 1200
+      },
+      "name": "升級方案",
+      "price": {
+        "amount": 1550,
+        "currency": "TWD",
+        "original_amount": 1860,
+        "tax_included": true,
+        "unit": "person"
+      }
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

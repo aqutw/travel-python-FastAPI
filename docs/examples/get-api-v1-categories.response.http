@@ -1,0 +1,104 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "description": "探索住宿商品與方案",
+      "id": "stay",
+      "image": {
+        "alt": "住宿示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      },
+      "name": "住宿"
+    },
+    {
+      "description": "探索郵輪商品與方案",
+      "id": "cruise",
+      "image": {
+        "alt": "郵輪示意圖",
+        "height": 800,
+        "url": "/images/cruise.svg",
+        "width": 1200
+      },
+      "name": "郵輪"
+    },
+    {
+      "description": "探索跟團旅遊商品與方案",
+      "id": "tour",
+      "image": {
+        "alt": "跟團旅遊示意圖",
+        "height": 800,
+        "url": "/images/tour.svg",
+        "width": 1200
+      },
+      "name": "跟團旅遊"
+    },
+    {
+      "description": "探索景點體驗商品與方案",
+      "id": "activity",
+      "image": {
+        "alt": "景點體驗示意圖",
+        "height": 800,
+        "url": "/images/activity.svg",
+        "width": 1200
+      },
+      "name": "景點體驗"
+    },
+    {
+      "description": "探索包車接送商品與方案",
+      "id": "transfer",
+      "image": {
+        "alt": "包車接送示意圖",
+        "height": 800,
+        "url": "/images/transfer.svg",
+        "width": 1200
+      },
+      "name": "包車接送"
+    },
+    {
+      "description": "探索eSIM商品與方案",
+      "id": "esim",
+      "image": {
+        "alt": "eSIM示意圖",
+        "height": 800,
+        "url": "/images/esim.svg",
+        "width": 1200
+      },
+      "name": "eSIM"
+    },
+    {
+      "description": "探索運動旅遊商品與方案",
+      "id": "sport",
+      "image": {
+        "alt": "運動旅遊示意圖",
+        "height": 800,
+        "url": "/images/sport.svg",
+        "width": 1200
+      },
+      "name": "運動旅遊"
+    },
+    {
+      "description": "探索鐵道假期商品與方案",
+      "id": "rail",
+      "image": {
+        "alt": "鐵道假期示意圖",
+        "height": 800,
+        "url": "/images/rail.svg",
+        "width": 1200
+      },
+      "name": "鐵道假期"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

@@ -6,11 +6,14 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+from jsonschema import Draft4Validator
+from openapi_spec_validator import validate
 
-def request(base, path, method='GET'):
+
+def request(base, path, method='GET', data=None, headers=None):
     path = urllib.parse.quote(path, safe='/?=&,%:-')
-    req = urllib.request.Request(base + path, method=method,
-                                 headers={'Origin': 'http://localhost:5173'})
+    req = urllib.request.Request(base + path, method=method, data=data,
+                                 headers={'Origin': 'http://localhost:5173', **(headers or {})})
     try:
         response = urllib.request.urlopen(req, timeout=15)
     except urllib.error.HTTPError as error:
@@ -21,9 +24,6 @@ def request(base, path, method='GET'):
 
 
 def main():
-    from jsonschema import Draft4Validator
-    from openapi_spec_validator import validate
-
     parser = argparse.ArgumentParser()
     parser.add_argument('--base-url', default='http://localhost:8000')
     args = parser.parse_args()
@@ -47,7 +47,9 @@ def main():
         return body
 
     for route, item in spec['paths'].items():
-        operation = item['get']
+        operation = item.get('get')
+        if not operation or operation.get('security'):
+            continue
         schema = operation['responses']['200']['content']['application/json']['schema']
         check(operation['x-smoke-path'], schema)
         print('PASS', route)
@@ -72,7 +74,7 @@ def main():
             assert not raw
     status, _, raw = request(base, '/api/v1/products?min_rating=NaN')
     assert status == 400 and json.loads(raw)['error']['code'] == 'invalid_query'
-    print(f'Validated OpenAPI and {checked} live JSON responses; {len(images)} local images; CORS and read-only methods.')
+    print(f'Validated OpenAPI and {checked} live JSON responses; {len(images)} local images; CORS and method handling.')
 
 
 if __name__ == '__main__':

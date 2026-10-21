@@ -1,0 +1,6 @@
+GET /api/v1/trips?per_page=2 HTTP/1.1
+Host: localhost:8000
+Accept: application/json
+X-Request-ID: example-request-0001
+X-API-Key: {{API_WRITE_KEY}}
+

@@ -1,0 +1,37 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "content": [
+      "從台北的步行街區開始，選擇一間喜歡的小店。",
+      "中午留給在地餐桌，下午安排一段自然散步。",
+      "這篇內容為原創假資料，交通與營業時間請勿作為真實出遊依據。"
+    ],
+    "destination_id": "taipei",
+    "id": "guide-taipei",
+    "image": {
+      "alt": "台北旅遊示意圖",
+      "height": 800,
+      "url": "/images/stay.svg",
+      "width": 1200
+    },
+    "related_product_ids": [
+      "stay-001",
+      "tour-001",
+      "activity-001",
+      "transfer-001"
+    ],
+    "summary": "三個方向，安排一段從容的假期。",
+    "title": "台北慢旅行：留一點時間給街角"
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

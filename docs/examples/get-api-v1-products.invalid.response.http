@@ -1,0 +1,12 @@
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "error": {
+    "code": "invalid_query",
+    "message": "page: must be an integer between 1 and 1000000"
+  }
+}

@@ -1,0 +1,53 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "country_code": "TW",
+      "country_name": "台灣",
+      "description": "從台北的街區散步到在地餐桌，安排一段留有餘裕的旅行。",
+      "id": "taipei",
+      "image": {
+        "alt": "台北旅遊示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      },
+      "latitude": 25.033,
+      "longitude": 121.565,
+      "name": "台北"
+    },
+    {
+      "country_code": "TW",
+      "country_name": "台灣",
+      "description": "從宜蘭的街區散步到在地餐桌，安排一段留有餘裕的旅行。",
+      "id": "yilan",
+      "image": {
+        "alt": "宜蘭旅遊示意圖",
+        "height": 800,
+        "url": "/images/cruise.svg",
+        "width": 1200
+      },
+      "latitude": 24.757,
+      "longitude": 121.754,
+      "name": "宜蘭"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "pagination": {
+      "has_next": true,
+      "page": 1,
+      "per_page": 2,
+      "total": 12,
+      "total_pages": 6
+    },
+    "reference_date": "2026-10-20"
+  }
+}

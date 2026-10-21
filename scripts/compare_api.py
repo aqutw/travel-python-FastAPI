@@ -13,7 +13,7 @@ def main():
     args = parser.parse_args()
     base, reference = args.base_url.rstrip("/"), args.reference_url.rstrip("/")
     spec = json.loads(request(base, "/openapi.json")[2])
-    paths = {v["get"]["x-smoke-path"] for v in spec["paths"].values()}
+    paths = {v["get"]["x-smoke-path"] for v in spec["paths"].values() if "get" in v and not v["get"].get("security")}
     cards = json.loads(request(reference, "/api/v1/products?per_page=100")[2])["data"]
     for card in cards:
         detail = card["detail_url"]

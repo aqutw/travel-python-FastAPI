@@ -1,0 +1,35 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "answer": "不行。此服務只提供開發用 GET API 與虛構資料。",
+      "category": "general",
+      "id": "faq-001",
+      "question": "這些商品可以實際預訂嗎？"
+    },
+    {
+      "answer": "依入住人數與房間數查詢日期庫存，再比較房型容量與價格。",
+      "category": "stay",
+      "id": "faq-002",
+      "question": "如何選擇房型？"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "pagination": {
+      "has_next": true,
+      "page": 1,
+      "per_page": 2,
+      "total": 6,
+      "total_pages": 3
+    },
+    "reference_date": "2026-10-20"
+  }
+}

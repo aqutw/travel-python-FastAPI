@@ -1,0 +1,66 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "accommodation": "示範風格旅館",
+      "day": 1,
+      "description": "第 1 天探索在地景色，保留彈性自由活動時間。",
+      "meals": [
+        "早餐",
+        "晚餐"
+      ],
+      "title": "台北・啟程與相遇"
+    },
+    {
+      "accommodation": "示範風格旅館",
+      "day": 2,
+      "description": "第 2 天探索在地景色，保留彈性自由活動時間。",
+      "meals": [
+        "早餐",
+        "晚餐"
+      ],
+      "title": "台北・街區探索"
+    },
+    {
+      "accommodation": "示範風格旅館",
+      "day": 3,
+      "description": "第 3 天探索在地景色，保留彈性自由活動時間。",
+      "meals": [
+        "早餐",
+        "晚餐"
+      ],
+      "title": "台北・自然漫遊"
+    },
+    {
+      "accommodation": "示範風格旅館",
+      "day": 4,
+      "description": "第 4 天探索在地景色，保留彈性自由活動時間。",
+      "meals": [
+        "早餐",
+        "晚餐"
+      ],
+      "title": "台北・在地生活"
+    },
+    {
+      "accommodation": "示範風格旅館",
+      "day": 5,
+      "description": "第 5 天探索在地景色，保留彈性自由活動時間。",
+      "meals": [
+        "早餐",
+        "晚餐"
+      ],
+      "title": "台北・悠閒返程"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

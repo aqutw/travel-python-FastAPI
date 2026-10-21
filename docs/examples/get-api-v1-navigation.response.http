@@ -1,0 +1,74 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "footer": [
+      {
+        "links": [
+          {
+            "href": "/destinations",
+            "label": "目的地"
+          },
+          {
+            "href": "/collections",
+            "label": "主題旅遊"
+          },
+          {
+            "href": "/articles",
+            "label": "旅行靈感"
+          }
+        ],
+        "title": "探索旅行"
+      },
+      {
+        "links": [
+          {
+            "href": "/faqs",
+            "label": "常見問題"
+          },
+          {
+            "href": "/docs",
+            "label": "API 文件"
+          }
+        ],
+        "title": "支援與協助"
+      }
+    ],
+    "primary": [
+      {
+        "href": "/products?type=cruise",
+        "label": "郵輪"
+      },
+      {
+        "href": "/products?type=tour",
+        "label": "跟團旅遊"
+      },
+      {
+        "href": "/products?type=stay",
+        "label": "住宿"
+      },
+      {
+        "href": "/products?type=activity",
+        "label": "景點體驗"
+      },
+      {
+        "href": "/products?type=rail",
+        "label": "鐵道假期"
+      },
+      {
+        "href": "/products?type=sport",
+        "label": "運動旅遊"
+      }
+    ]
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

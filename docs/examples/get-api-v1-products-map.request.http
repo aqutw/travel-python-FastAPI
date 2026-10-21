@@ -1,0 +1,5 @@
+GET /api/v1/products/map?bbox=121%2C24%2C122%2C26&per_page=2 HTTP/1.1
+Host: localhost:8000
+Accept: application/json
+X-Request-ID: example-request-0001
+

@@ -1,0 +1,64 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "amenities": [
+        "wifi",
+        "breakfast",
+        "parking"
+      ],
+      "capacity": 2,
+      "description": "經典雙人房，提供測試用價格與容量。",
+      "id": "stay-001-opt-1",
+      "image": {
+        "alt": "經典雙人房示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      },
+      "name": "經典雙人房",
+      "price": {
+        "amount": 2400,
+        "currency": "TWD",
+        "original_amount": 2880,
+        "tax_included": true,
+        "unit": "night"
+      }
+    },
+    {
+      "amenities": [
+        "wifi",
+        "breakfast",
+        "parking"
+      ],
+      "capacity": 4,
+      "description": "景觀四人房，提供測試用價格與容量。",
+      "id": "stay-001-opt-2",
+      "image": {
+        "alt": "景觀四人房示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      },
+      "name": "景觀四人房",
+      "price": {
+        "amount": 3000,
+        "currency": "TWD",
+        "original_amount": 3600,
+        "tax_included": true,
+        "unit": "night"
+      }
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

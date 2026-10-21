@@ -28,7 +28,7 @@ class Catalog:
     def validate(self):
         version = self.connection.execute("PRAGMA user_version").fetchone()[0]
         app_id = self.connection.execute("PRAGMA application_id").fetchone()[0]
-        if (version, app_id) != (1, 1414676822):
+        if version not in (1, 2) or app_id != 1414676822:
             raise RuntimeError("unsupported catalog schema")
         self.connection.execute("SELECT body FROM product_details LIMIT 1").fetchone()
 

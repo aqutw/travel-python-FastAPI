@@ -1,0 +1,36 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "content": {
+      "adults": 2,
+      "children": 0,
+      "end_date": "2026-11-03",
+      "items": [
+        {
+          "day": 1,
+          "notes": "入住",
+          "product_id": "stay-001"
+        }
+      ],
+      "notes": "安排早餐",
+      "start_date": "2026-11-01",
+      "title": "台北兩日"
+    },
+    "created_at": "2026-10-20T00:00:00Z",
+    "id": "{{trip_id}}",
+    "kind": "trip",
+    "updated_at": "2026-10-20T00:00:00Z",
+    "version": 1
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

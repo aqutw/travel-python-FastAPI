@@ -1,0 +1,37 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "content": {
+        "description": "候選住宿",
+        "product_ids": [
+          "stay-001"
+        ],
+        "title": "週末收藏"
+      },
+      "created_at": "2026-10-20T00:00:00Z",
+      "id": "{{wishlist_id}}",
+      "kind": "wishlist",
+      "updated_at": "2026-10-20T00:00:00Z",
+      "version": 1
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "pagination": {
+      "has_next": false,
+      "page": 1,
+      "per_page": 2,
+      "total": 1,
+      "total_pages": 1
+    },
+    "reference_date": "2026-10-20"
+  }
+}

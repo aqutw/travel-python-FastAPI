@@ -1,0 +1,182 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "amenities": [
+        "wifi",
+        "breakfast"
+      ],
+      "confirmation": "instant",
+      "cover": {
+        "alt": "花蓮｜山嵐豪華露營示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      },
+      "destination_id": "hualien",
+      "detail_url": "/api/v1/products/stay-003",
+      "duration_days": 1,
+      "free_cancellation": true,
+      "id": "stay-003",
+      "latitude": 23.993,
+      "location_name": "台灣・花蓮",
+      "longitude": 121.609,
+      "popularity": 954,
+      "price": {
+        "amount": 2700,
+        "currency": "TWD",
+        "original_amount": 3240,
+        "tax_included": true,
+        "unit": "night"
+      },
+      "rating": {
+        "average": 4.6,
+        "count": 5
+      },
+      "summary": "以花蓮為起點，享受從容的住宿時光。所有內容皆為測試假資料。",
+      "tags": [
+        "親子友善",
+        "慢遊精選",
+        "露營"
+      ],
+      "title": "花蓮｜山嵐豪華露營",
+      "type": "stay"
+    },
+    {
+      "amenities": [
+        "wifi",
+        "breakfast",
+        "parking"
+      ],
+      "confirmation": "instant",
+      "cover": {
+        "alt": "台南｜巷弄包棟寓所示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      },
+      "destination_id": "tainan",
+      "detail_url": "/api/v1/products/stay-004",
+      "duration_days": 1,
+      "free_cancellation": false,
+      "id": "stay-004",
+      "latitude": 23.008,
+      "location_name": "台灣・台南",
+      "longitude": 120.227,
+      "popularity": 931,
+      "price": {
+        "amount": 2850,
+        "currency": "TWD",
+        "original_amount": 3420,
+        "tax_included": true,
+        "unit": "night"
+      },
+      "rating": {
+        "average": 4.6,
+        "count": 5
+      },
+      "summary": "以台南為起點，享受從容的住宿時光。所有內容皆為測試假資料。",
+      "tags": [
+        "雙人出遊",
+        "熱門推薦",
+        "包棟"
+      ],
+      "title": "台南｜巷弄包棟寓所",
+      "type": "stay"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "facets": {
+      "amenities": [
+        {
+          "count": 6,
+          "value": "breakfast"
+        },
+        {
+          "count": 2,
+          "value": "parking"
+        },
+        {
+          "count": 6,
+          "value": "wifi"
+        }
+      ],
+      "destinations": [
+        {
+          "count": 1,
+          "value": "bangkok"
+        },
+        {
+          "count": 1,
+          "value": "hualien"
+        },
+        {
+          "count": 1,
+          "value": "okinawa"
+        },
+        {
+          "count": 1,
+          "value": "osaka"
+        },
+        {
+          "count": 1,
+          "value": "singapore"
+        },
+        {
+          "count": 1,
+          "value": "tainan"
+        }
+      ],
+      "max_price": 3150,
+      "min_price": 2400,
+      "tags": [
+        {
+          "count": 3,
+          "value": "包棟"
+        },
+        {
+          "count": 4,
+          "value": "慢遊精選"
+        },
+        {
+          "count": 2,
+          "value": "熱門推薦"
+        },
+        {
+          "count": 3,
+          "value": "親子友善"
+        },
+        {
+          "count": 3,
+          "value": "雙人出遊"
+        },
+        {
+          "count": 3,
+          "value": "露營"
+        }
+      ],
+      "types": [
+        {
+          "count": 6,
+          "value": "stay"
+        }
+      ]
+    },
+    "locale": "zh-TW",
+    "mock": true,
+    "pagination": {
+      "has_next": true,
+      "page": 1,
+      "per_page": 2,
+      "total": 6,
+      "total_pages": 3
+    },
+    "reference_date": "2026-10-20"
+  }
+}

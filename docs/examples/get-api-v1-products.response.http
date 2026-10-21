@@ -1,0 +1,109 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "amenities": [
+        "wifi",
+        "breakfast",
+        "parking"
+      ],
+      "confirmation": "instant",
+      "cover": {
+        "alt": "台北｜木光旅宿示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      },
+      "destination_id": "taipei",
+      "detail_url": "/api/v1/products/stay-001",
+      "duration_days": 1,
+      "free_cancellation": true,
+      "id": "stay-001",
+      "latitude": 25.033,
+      "location_name": "台灣・台北",
+      "longitude": 121.565,
+      "popularity": 1000,
+      "price": {
+        "amount": 2400,
+        "currency": "TWD",
+        "original_amount": 2880,
+        "tax_included": true,
+        "unit": "night"
+      },
+      "rating": {
+        "average": 4.6,
+        "count": 5
+      },
+      "summary": "以台北為起點，享受從容的住宿時光。所有內容皆為測試假資料。",
+      "tags": [
+        "親子友善",
+        "熱門推薦",
+        "飯店"
+      ],
+      "title": "台北｜木光旅宿",
+      "type": "stay"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "facets": {
+      "amenities": [
+        {
+          "count": 1,
+          "value": "breakfast"
+        },
+        {
+          "count": 1,
+          "value": "parking"
+        },
+        {
+          "count": 1,
+          "value": "wifi"
+        }
+      ],
+      "destinations": [
+        {
+          "count": 1,
+          "value": "taipei"
+        }
+      ],
+      "max_price": 2400,
+      "min_price": 2400,
+      "tags": [
+        {
+          "count": 1,
+          "value": "熱門推薦"
+        },
+        {
+          "count": 1,
+          "value": "親子友善"
+        },
+        {
+          "count": 1,
+          "value": "飯店"
+        }
+      ],
+      "types": [
+        {
+          "count": 1,
+          "value": "stay"
+        }
+      ]
+    },
+    "locale": "zh-TW",
+    "mock": true,
+    "pagination": {
+      "has_next": false,
+      "page": 1,
+      "per_page": 1,
+      "total": 1,
+      "total_pages": 1
+    },
+    "reference_date": "2026-10-20"
+  }
+}

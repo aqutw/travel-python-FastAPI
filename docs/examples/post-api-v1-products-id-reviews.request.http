@@ -1,0 +1,14 @@
+POST /api/v1/products/stay-001/reviews HTTP/1.1
+Host: localhost:8000
+Accept: application/json
+X-Request-ID: example-request-0001
+X-API-Key: {{API_WRITE_KEY}}
+Idempotency-Key: post-api-v1-products-id-reviews-001
+Content-Type: application/json
+
+{
+  "author": "測試旅人",
+  "rating": 5,
+  "content": "交通便利，房間舒適。",
+  "travel_date": "2026-10-01"
+}

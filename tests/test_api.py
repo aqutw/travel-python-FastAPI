@@ -34,10 +34,12 @@ class APITests(unittest.TestCase):
     def test_all_documented_responses_and_product_variants(self):
         spec = self.get("/openapi.json")
         validate(spec)
-        self.assertEqual(len(spec["paths"]), 30)
+        self.assertEqual(len(spec["paths"]), 36)
         for path, item in spec["paths"].items():
             with self.subTest(path=path):
-                operation = item["get"]
+                operation = item.get("get")
+                if not operation or operation.get("security"):
+                    continue
                 schema = operation["responses"]["200"]["content"]["application/json"]["schema"]
                 Draft4Validator({**spec, **schema}, format_checker=Draft4Validator.FORMAT_CHECKER).validate(
                     self.get(operation["x-smoke-path"]))
@@ -134,7 +136,7 @@ class APITests(unittest.TestCase):
             self.assertEqual(get.headers["cache-control"], "no-store")
             self.assertEqual(self.client.options(path).status_code, 204)
             for method in ("POST", "PUT", "PATCH", "DELETE"):
-                self.assertEqual(self.client.request(method, path).status_code, 405)
+                self.assertEqual(self.client.request(method, path).status_code, 404 if path == "/missing" else 405)
         self.assertIn("swagger-ui", self.client.get("/docs").text)
         self.assertIn("text/html", self.client.get("/").headers["content-type"])
 

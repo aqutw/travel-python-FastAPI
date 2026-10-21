@@ -1,0 +1,51 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "id": "stay-001",
+      "latitude": 25.033,
+      "longitude": 121.565,
+      "price": {
+        "amount": 2400,
+        "currency": "TWD",
+        "original_amount": 2880,
+        "tax_included": true,
+        "unit": "night"
+      },
+      "title": "台北｜木光旅宿",
+      "type": "stay"
+    },
+    {
+      "id": "tour-001",
+      "latitude": 25.033,
+      "longitude": 121.565,
+      "price": {
+        "amount": 24800,
+        "currency": "TWD",
+        "original_amount": 29760,
+        "tax_included": true,
+        "unit": "person"
+      },
+      "title": "台北｜溫泉與山城五日",
+      "type": "tour"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "pagination": {
+      "has_next": true,
+      "page": 1,
+      "per_page": 2,
+      "total": 20,
+      "total_pages": 10
+    },
+    "reference_date": "2026-10-20"
+  }
+}

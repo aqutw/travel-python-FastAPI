@@ -1,0 +1,120 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": [
+    {
+      "href": "/products?destination_id=tokyo",
+      "id": "tokyo",
+      "image": {
+        "alt": "東京旅遊示意圖",
+        "height": 800,
+        "url": "/images/transfer.svg",
+        "width": 1200
+      },
+      "label": "東京",
+      "subtitle": "日本",
+      "type": "destination"
+    },
+    {
+      "href": "/products/stay-005",
+      "id": "stay-005",
+      "image": {
+        "alt": "東京｜木光旅宿示意圖",
+        "height": 800,
+        "url": "/images/stay.svg",
+        "width": 1200
+      },
+      "label": "東京｜木光旅宿",
+      "subtitle": "日本・東京",
+      "type": "product"
+    },
+    {
+      "href": "/products/cruise-003",
+      "id": "cruise-003",
+      "image": {
+        "alt": "東京｜遠洋號慢遊五日示意圖",
+        "height": 800,
+        "url": "/images/cruise.svg",
+        "width": 1200
+      },
+      "label": "東京｜遠洋號慢遊五日",
+      "subtitle": "日本・東京",
+      "type": "product"
+    },
+    {
+      "href": "/products/cruise-006",
+      "id": "cruise-006",
+      "image": {
+        "alt": "東京｜晨星號海上假期五日示意圖",
+        "height": 800,
+        "url": "/images/cruise.svg",
+        "width": 1200
+      },
+      "label": "東京｜晨星號海上假期五日",
+      "subtitle": "日本・東京",
+      "type": "product"
+    },
+    {
+      "href": "/products/cruise-009",
+      "id": "cruise-009",
+      "image": {
+        "alt": "東京｜海風號跳島五日示意圖",
+        "height": 800,
+        "url": "/images/cruise.svg",
+        "width": 1200
+      },
+      "label": "東京｜海風號跳島五日",
+      "subtitle": "日本・東京",
+      "type": "product"
+    },
+    {
+      "href": "/products/cruise-012",
+      "id": "cruise-012",
+      "image": {
+        "alt": "東京｜藍灣號親子航程五日示意圖",
+        "height": 800,
+        "url": "/images/cruise.svg",
+        "width": 1200
+      },
+      "label": "東京｜藍灣號親子航程五日",
+      "subtitle": "日本・東京",
+      "type": "product"
+    },
+    {
+      "href": "/products/tour-005",
+      "id": "tour-005",
+      "image": {
+        "alt": "東京｜溫泉與山城五日示意圖",
+        "height": 800,
+        "url": "/images/tour.svg",
+        "width": 1200
+      },
+      "label": "東京｜溫泉與山城五日",
+      "subtitle": "日本・東京",
+      "type": "product"
+    },
+    {
+      "href": "/products/activity-005",
+      "id": "activity-005",
+      "image": {
+        "alt": "東京｜城市散步與手作體驗示意圖",
+        "height": 800,
+        "url": "/images/activity.svg",
+        "width": 1200
+      },
+      "label": "東京｜城市散步與手作體驗",
+      "subtitle": "日本・東京",
+      "type": "product"
+    }
+  ],
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}

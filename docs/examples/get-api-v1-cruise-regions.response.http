@@ -1,0 +1,38 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Request-ID: example-request-0001
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+
+{
+  "data": {
+    "cruise_lines": [
+      "藍灣假期（虛構品牌）"
+    ],
+    "port_regions": [
+      "基隆港",
+      "新加坡港",
+      "橫濱港"
+    ],
+    "route_regions": [
+      {
+        "href": "tokyo",
+        "label": "東京"
+      },
+      {
+        "href": "okinawa",
+        "label": "沖繩"
+      },
+      {
+        "href": "singapore",
+        "label": "新加坡"
+      }
+    ]
+  },
+  "meta": {
+    "currency": "TWD",
+    "locale": "zh-TW",
+    "mock": true,
+    "reference_date": "2026-10-20"
+  }
+}
