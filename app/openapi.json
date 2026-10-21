@@ -1,0 +1,5396 @@
+{
+  "components": {
+    "parameters": {
+      "adults": {
+        "description": "成人數，預設 2。搜尋人數條件必須搭配日期。",
+        "in": "query",
+        "name": "adults",
+        "schema": {
+          "default": 2,
+          "maximum": 16,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "amenity": {
+        "description": "設施代碼，例如 wifi、breakfast、parking、hot_spring。",
+        "in": "query",
+        "name": "amenity",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "bbox": {
+        "description": "west,south,east,north，經緯度十進位。不支援跨越國際換日線。",
+        "in": "query",
+        "name": "bbox",
+        "schema": {
+          "example": "121,24,122,26",
+          "type": "string"
+        }
+      },
+      "category": {
+        "description": "FAQ 類別，例如 general、stay、cruise、tour、activity。",
+        "in": "query",
+        "name": "category",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "children": {
+        "description": "兒童數，示範價格與成人相同，並計入容量。",
+        "in": "query",
+        "name": "children",
+        "schema": {
+          "default": 0,
+          "maximum": 16,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "country": {
+        "description": "國家代碼。",
+        "in": "query",
+        "name": "country",
+        "schema": {
+          "enum": [
+            "TW",
+            "JP",
+            "KR",
+            "TH",
+            "SG"
+          ],
+          "type": "string"
+        }
+      },
+      "cruise_line": {
+        "description": "郵輪品牌精確比對，值由 cruise/regions 取得。",
+        "in": "query",
+        "name": "cruise_line",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "departure_city": {
+        "description": "跟團出發城市精確比對，例如 台北。",
+        "in": "query",
+        "name": "departure_city",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "departure_port": {
+        "description": "郵輪出發港精確比對，例如 基隆港。",
+        "in": "query",
+        "name": "departure_port",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "destination_id": {
+        "description": "目的地 ID，例如 tokyo。",
+        "in": "query",
+        "name": "destination_id",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "end_date": {
+        "description": "不含此日。搜尋必須同時提供起訖日期（最多 30 天）；calendar/departures 最多 90 天。",
+        "in": "query",
+        "name": "end_date",
+        "schema": {
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "free_cancellation": {
+        "description": "true 僅顯示可免費取消的商品。",
+        "in": "query",
+        "name": "free_cancellation",
+        "schema": {
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "limit": {
+        "description": "自動完成回傳筆數。",
+        "in": "query",
+        "name": "limit",
+        "schema": {
+          "default": 8,
+          "maximum": 20,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "max_days": {
+        "description": "最多商品行程天數。",
+        "in": "query",
+        "name": "max_days",
+        "schema": {
+          "default": 30,
+          "maximum": 30,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "max_price": {
+        "description": "最高卡片起價（TWD 元）。",
+        "in": "query",
+        "name": "max_price",
+        "schema": {
+          "default": 10000000,
+          "maximum": 10000000,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "min_days": {
+        "description": "最少商品行程天數。",
+        "in": "query",
+        "name": "min_days",
+        "schema": {
+          "default": 1,
+          "maximum": 30,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "min_price": {
+        "description": "最低卡片起價（TWD 元）。",
+        "in": "query",
+        "name": "min_price",
+        "schema": {
+          "default": 0,
+          "maximum": 10000000,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "min_rating": {
+        "description": "最低評分。",
+        "in": "query",
+        "name": "min_rating",
+        "schema": {
+          "default": 0,
+          "maximum": 5,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "page": {
+        "description": "從 1 開始。超出資料頁數回傳空陣列。",
+        "in": "query",
+        "name": "page",
+        "schema": {
+          "default": 1,
+          "maximum": 1000000,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "per_page": {
+        "description": "每頁筆數。",
+        "in": "query",
+        "name": "per_page",
+        "schema": {
+          "default": 12,
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "property_type": {
+        "description": "住宿類型精確比對。",
+        "in": "query",
+        "name": "property_type",
+        "schema": {
+          "enum": [
+            "hotel",
+            "hot_spring",
+            "camping",
+            "entire_house"
+          ],
+          "type": "string"
+        }
+      },
+      "q": {
+        "description": "不分英文大小寫的部分文字搜尋。",
+        "in": "query",
+        "name": "q",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "quantity": {
+        "description": "房、艙、車、上網方案份數。按人計價需為 1，以 adults+children 計價。",
+        "in": "query",
+        "name": "quantity",
+        "schema": {
+          "default": 1,
+          "maximum": 8,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "rating": {
+        "description": "評價星數精確比對。不提供此參數時顯示全部評價。",
+        "in": "query",
+        "name": "rating",
+        "schema": {
+          "maximum": 5,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "sort": {
+        "description": "同分以商品 ID 升冪排序。",
+        "in": "query",
+        "name": "sort",
+        "schema": {
+          "default": "popular",
+          "enum": [
+            "popular",
+            "price_asc",
+            "price_desc",
+            "rating",
+            "duration"
+          ],
+          "type": "string"
+        }
+      },
+      "start_date": {
+        "description": "YYYY-MM-DD，台北時間；預設 reference_date+7，允許 reference_date 至 +365 天。",
+        "in": "query",
+        "name": "start_date",
+        "schema": {
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "status": {
+        "description": "每日出發狀態。guaranteed 與 forming 僅用於跟團。",
+        "in": "query",
+        "name": "status",
+        "schema": {
+          "enum": [
+            "available",
+            "guaranteed",
+            "forming",
+            "sold_out"
+          ],
+          "type": "string"
+        }
+      },
+      "tag": {
+        "description": "單一標籤精確比對，例如 親子友善、露營、包棟。",
+        "in": "query",
+        "name": "tag",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "type": {
+        "description": "商品品類。",
+        "in": "query",
+        "name": "type",
+        "schema": {
+          "enum": [
+            "stay",
+            "cruise",
+            "tour",
+            "activity",
+            "transfer",
+            "esim",
+            "sport",
+            "rail"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "schemas": {
+      "ActivityDetails": {
+        "additionalProperties": false,
+        "properties": {
+          "meeting_point": {
+            "type": "string"
+          },
+          "plans": {
+            "items": {
+              "$ref": "#/components/schemas/Option"
+            },
+            "type": "array"
+          },
+          "usage_instructions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "voucher_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "meeting_point",
+          "voucher_type",
+          "usage_instructions",
+          "plans"
+        ],
+        "type": "object"
+      },
+      "Article": {
+        "additionalProperties": false,
+        "properties": {
+          "content": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "destination_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "related_product_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "summary",
+          "destination_id",
+          "image",
+          "content",
+          "related_product_ids"
+        ],
+        "type": "object"
+      },
+      "Availability": {
+        "additionalProperties": false,
+        "properties": {
+          "adults": {
+            "type": "integer"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "children": {
+            "type": "integer"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "disclaimer": {
+            "type": "string"
+          },
+          "end_date": {
+            "type": "string"
+          },
+          "nights": {
+            "type": "integer"
+          },
+          "options": {
+            "items": {
+              "$ref": "#/components/schemas/Quote"
+            },
+            "type": "array"
+          },
+          "product_id": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "start_date": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "product_id",
+          "start_date",
+          "end_date",
+          "nights",
+          "adults",
+          "children",
+          "quantity",
+          "available",
+          "currency",
+          "options",
+          "disclaimer"
+        ],
+        "type": "object"
+      },
+      "CalendarDay": {
+        "additionalProperties": false,
+        "properties": {
+          "available": {
+            "type": "boolean"
+          },
+          "date": {
+            "type": "string"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "remaining": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "date",
+          "available",
+          "remaining",
+          "price",
+          "status"
+        ],
+        "type": "object"
+      },
+      "Campaign": {
+        "additionalProperties": false,
+        "properties": {
+          "collection_id": {
+            "type": "string"
+          },
+          "coupon_code": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "discount_amount": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "string"
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "minimum_spend": {
+            "type": "integer"
+          },
+          "terms": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "description",
+          "image",
+          "coupon_code",
+          "discount_amount",
+          "minimum_spend",
+          "collection_id",
+          "terms"
+        ],
+        "type": "object"
+      },
+      "Card": {
+        "additionalProperties": false,
+        "properties": {
+          "amenities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "confirmation": {
+            "enum": [
+              "instant",
+              "request"
+            ],
+            "type": "string"
+          },
+          "cover": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "destination_id": {
+            "type": "string"
+          },
+          "detail_url": {
+            "type": "string"
+          },
+          "duration_days": {
+            "type": "integer"
+          },
+          "free_cancellation": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "location_name": {
+            "type": "string"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "popularity": {
+            "type": "integer"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "rating": {
+            "$ref": "#/components/schemas/Rating"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "stay",
+              "cruise",
+              "tour",
+              "activity",
+              "transfer",
+              "esim",
+              "sport",
+              "rail"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "title",
+          "summary",
+          "destination_id",
+          "location_name",
+          "latitude",
+          "longitude",
+          "cover",
+          "price",
+          "rating",
+          "tags",
+          "amenities",
+          "duration_days",
+          "popularity",
+          "free_cancellation",
+          "confirmation",
+          "detail_url"
+        ],
+        "type": "object"
+      },
+      "Category": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "image"
+        ],
+        "type": "object"
+      },
+      "Collection": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "product_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "description",
+          "image",
+          "product_ids"
+        ],
+        "type": "object"
+      },
+      "CruiseDetails": {
+        "additionalProperties": false,
+        "properties": {
+          "cabins": {
+            "items": {
+              "$ref": "#/components/schemas/Option"
+            },
+            "type": "array"
+          },
+          "cruise_line": {
+            "type": "string"
+          },
+          "departure_port": {
+            "type": "string"
+          },
+          "itinerary": {
+            "items": {
+              "$ref": "#/components/schemas/Day"
+            },
+            "type": "array"
+          },
+          "route": {
+            "type": "string"
+          },
+          "ship_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ship_name",
+          "cruise_line",
+          "departure_port",
+          "route",
+          "cabins",
+          "itinerary"
+        ],
+        "type": "object"
+      },
+      "CruiseRegions": {
+        "additionalProperties": false,
+        "properties": {
+          "cruise_lines": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "port_regions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "route_regions": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "port_regions",
+          "route_regions",
+          "cruise_lines"
+        ],
+        "type": "object"
+      },
+      "Day": {
+        "additionalProperties": false,
+        "properties": {
+          "accommodation": {
+            "type": "string"
+          },
+          "day": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "meals": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "day",
+          "title",
+          "description",
+          "meals",
+          "accommodation"
+        ],
+        "type": "object"
+      },
+      "Destination": {
+        "additionalProperties": false,
+        "properties": {
+          "country_code": {
+            "type": "string"
+          },
+          "country_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "country_code",
+          "country_name",
+          "description",
+          "latitude",
+          "longitude",
+          "image"
+        ],
+        "type": "object"
+      },
+      "DestinationPage": {
+        "additionalProperties": false,
+        "properties": {
+          "collections": {
+            "items": {
+              "$ref": "#/components/schemas/Collection"
+            },
+            "type": "array"
+          },
+          "country_code": {
+            "type": "string"
+          },
+          "country_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "featured_products": {
+            "items": {
+              "$ref": "#/components/schemas/Card"
+            },
+            "type": "array"
+          },
+          "id": {
+            "type": "string"
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "product_count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "country_code",
+          "country_name",
+          "description",
+          "latitude",
+          "longitude",
+          "image",
+          "product_count",
+          "featured_products",
+          "collections"
+        ],
+        "type": "object"
+      },
+      "ErrorBody": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "type": "object"
+      },
+      "ErrorEnvelope": {
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorBody"
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "type": "object"
+      },
+      "FAQ": {
+        "additionalProperties": false,
+        "properties": {
+          "answer": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "category",
+          "question",
+          "answer"
+        ],
+        "type": "object"
+      },
+      "Facet": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "count"
+        ],
+        "type": "object"
+      },
+      "Facets": {
+        "additionalProperties": false,
+        "properties": {
+          "amenities": {
+            "items": {
+              "$ref": "#/components/schemas/Facet"
+            },
+            "type": "array"
+          },
+          "destinations": {
+            "items": {
+              "$ref": "#/components/schemas/Facet"
+            },
+            "type": "array"
+          },
+          "max_price": {
+            "type": "integer"
+          },
+          "min_price": {
+            "type": "integer"
+          },
+          "tags": {
+            "items": {
+              "$ref": "#/components/schemas/Facet"
+            },
+            "type": "array"
+          },
+          "types": {
+            "items": {
+              "$ref": "#/components/schemas/Facet"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "types",
+          "destinations",
+          "tags",
+          "amenities",
+          "min_price",
+          "max_price"
+        ],
+        "type": "object"
+      },
+      "Home": {
+        "additionalProperties": false,
+        "properties": {
+          "articles": {
+            "items": {
+              "$ref": "#/components/schemas/Article"
+            },
+            "type": "array"
+          },
+          "campaigns": {
+            "items": {
+              "$ref": "#/components/schemas/Campaign"
+            },
+            "type": "array"
+          },
+          "categories": {
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            },
+            "type": "array"
+          },
+          "collections": {
+            "items": {
+              "$ref": "#/components/schemas/Collection"
+            },
+            "type": "array"
+          },
+          "destinations": {
+            "items": {
+              "$ref": "#/components/schemas/Destination"
+            },
+            "type": "array"
+          },
+          "hero": {
+            "additionalProperties": false,
+            "properties": {
+              "image": {
+                "$ref": "#/components/schemas/Image"
+              },
+              "subtitle": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "subtitle",
+              "image"
+            ],
+            "type": "object"
+          },
+          "navigation": {
+            "$ref": "#/components/schemas/Navigation"
+          },
+          "sections": {
+            "items": {
+              "$ref": "#/components/schemas/HomeSection"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "hero",
+          "navigation",
+          "categories",
+          "campaigns",
+          "destinations",
+          "sections",
+          "collections",
+          "articles"
+        ],
+        "type": "object"
+      },
+      "HomeSection": {
+        "additionalProperties": false,
+        "properties": {
+          "collection_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "more_url": {
+            "type": "string"
+          },
+          "products": {
+            "items": {
+              "$ref": "#/components/schemas/Card"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "collection_id",
+          "more_url",
+          "products"
+        ],
+        "type": "object"
+      },
+      "Image": {
+        "additionalProperties": false,
+        "properties": {
+          "alt": {
+            "type": "string"
+          },
+          "height": {
+            "type": "integer"
+          },
+          "url": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "url",
+          "alt",
+          "width",
+          "height"
+        ],
+        "type": "object"
+      },
+      "Link": {
+        "additionalProperties": false,
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "href"
+        ],
+        "type": "object"
+      },
+      "MapPoint": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "title",
+          "latitude",
+          "longitude",
+          "price"
+        ],
+        "type": "object"
+      },
+      "Meta": {
+        "additionalProperties": false,
+        "properties": {
+          "currency": {
+            "enum": [
+              "TWD"
+            ],
+            "type": "string"
+          },
+          "facets": {
+            "$ref": "#/components/schemas/Facets"
+          },
+          "locale": {
+            "enum": [
+              "zh-TW"
+            ],
+            "type": "string"
+          },
+          "mock": {
+            "enum": [
+              true
+            ],
+            "type": "boolean"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          },
+          "reference_date": {
+            "format": "date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "mock",
+          "locale",
+          "currency",
+          "reference_date"
+        ],
+        "type": "object"
+      },
+      "Navigation": {
+        "additionalProperties": false,
+        "properties": {
+          "footer": {
+            "items": {
+              "$ref": "#/components/schemas/NavigationGroup"
+            },
+            "type": "array"
+          },
+          "primary": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "primary",
+          "footer"
+        ],
+        "type": "object"
+      },
+      "NavigationGroup": {
+        "additionalProperties": false,
+        "properties": {
+          "links": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "links"
+        ],
+        "type": "object"
+      },
+      "Option": {
+        "additionalProperties": false,
+        "properties": {
+          "amenities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "capacity": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "capacity",
+          "description",
+          "amenities",
+          "image",
+          "price"
+        ],
+        "type": "object"
+      },
+      "Pagination": {
+        "additionalProperties": false,
+        "properties": {
+          "has_next": {
+            "type": "boolean"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "total_pages": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "page",
+          "per_page",
+          "total",
+          "total_pages",
+          "has_next"
+        ],
+        "type": "object"
+      },
+      "Price": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "currency": {
+            "enum": [
+              "TWD"
+            ],
+            "type": "string"
+          },
+          "original_amount": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "tax_included": {
+            "type": "boolean"
+          },
+          "unit": {
+            "enum": [
+              "night",
+              "person",
+              "vehicle",
+              "package"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "original_amount",
+          "currency",
+          "unit",
+          "tax_included"
+        ],
+        "type": "object"
+      },
+      "Product": {
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "properties": {
+              "type": {
+                "enum": [
+                  "stay"
+                ]
+              }
+            },
+            "required": [
+              "stay"
+            ]
+          },
+          {
+            "properties": {
+              "type": {
+                "enum": [
+                  "cruise"
+                ]
+              }
+            },
+            "required": [
+              "cruise"
+            ]
+          },
+          {
+            "properties": {
+              "type": {
+                "enum": [
+                  "tour"
+                ]
+              }
+            },
+            "required": [
+              "tour"
+            ]
+          },
+          {
+            "properties": {
+              "type": {
+                "enum": [
+                  "activity",
+                  "transfer",
+                  "esim",
+                  "sport",
+                  "rail"
+                ]
+              }
+            },
+            "required": [
+              "activity"
+            ]
+          }
+        ],
+        "properties": {
+          "activity": {
+            "$ref": "#/components/schemas/ActivityDetails"
+          },
+          "address": {
+            "type": "string"
+          },
+          "amenities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "cancellation_policy": {
+            "type": "string"
+          },
+          "confirmation": {
+            "type": "string"
+          },
+          "cover": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "cruise": {
+            "$ref": "#/components/schemas/CruiseDetails"
+          },
+          "description": {
+            "type": "string"
+          },
+          "destination_id": {
+            "type": "string"
+          },
+          "detail_url": {
+            "type": "string"
+          },
+          "duration_days": {
+            "type": "integer"
+          },
+          "excluded": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "free_cancellation": {
+            "type": "boolean"
+          },
+          "highlights": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "id": {
+            "type": "string"
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/Image"
+            },
+            "type": "array"
+          },
+          "included": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "location_name": {
+            "type": "string"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "notices": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "popularity": {
+            "type": "integer"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "rating": {
+            "$ref": "#/components/schemas/Rating"
+          },
+          "stay": {
+            "$ref": "#/components/schemas/StayDetails"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          },
+          "tour": {
+            "$ref": "#/components/schemas/TourDetails"
+          },
+          "type": {
+            "enum": [
+              "stay",
+              "cruise",
+              "tour",
+              "activity",
+              "transfer",
+              "esim",
+              "sport",
+              "rail"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "title",
+          "summary",
+          "destination_id",
+          "location_name",
+          "latitude",
+          "longitude",
+          "cover",
+          "price",
+          "rating",
+          "tags",
+          "amenities",
+          "duration_days",
+          "popularity",
+          "free_cancellation",
+          "confirmation",
+          "detail_url",
+          "images",
+          "description",
+          "address",
+          "highlights",
+          "included",
+          "excluded",
+          "cancellation_policy",
+          "notices"
+        ],
+        "type": "object"
+      },
+      "Quote": {
+        "additionalProperties": false,
+        "properties": {
+          "available": {
+            "type": "boolean"
+          },
+          "capacity": {
+            "type": "integer"
+          },
+          "multiplier": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "option_id": {
+            "type": "string"
+          },
+          "remaining": {
+            "type": "integer"
+          },
+          "total_amount": {
+            "type": "integer"
+          },
+          "unit_price": {
+            "$ref": "#/components/schemas/Price"
+          }
+        },
+        "required": [
+          "option_id",
+          "name",
+          "capacity",
+          "remaining",
+          "available",
+          "unit_price",
+          "multiplier",
+          "total_amount"
+        ],
+        "type": "object"
+      },
+      "Rating": {
+        "additionalProperties": false,
+        "properties": {
+          "average": {
+            "type": "number"
+          },
+          "count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "average",
+          "count"
+        ],
+        "type": "object"
+      },
+      "Review": {
+        "additionalProperties": false,
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "product_id": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "integer"
+          },
+          "travel_date": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "product_id",
+          "author",
+          "rating",
+          "content",
+          "travel_date",
+          "created_at"
+        ],
+        "type": "object"
+      },
+      "StayDetails": {
+        "additionalProperties": false,
+        "properties": {
+          "check_in_time": {
+            "type": "string"
+          },
+          "check_out_time": {
+            "type": "string"
+          },
+          "property_type": {
+            "type": "string"
+          },
+          "rooms": {
+            "items": {
+              "$ref": "#/components/schemas/Option"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "property_type",
+          "check_in_time",
+          "check_out_time",
+          "rooms"
+        ],
+        "type": "object"
+      },
+      "Suggestion": {
+        "additionalProperties": false,
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          },
+          "label": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "label",
+          "subtitle",
+          "href",
+          "image"
+        ],
+        "type": "object"
+      },
+      "TourDetails": {
+        "additionalProperties": false,
+        "properties": {
+          "departure_city": {
+            "type": "string"
+          },
+          "itinerary": {
+            "items": {
+              "$ref": "#/components/schemas/Day"
+            },
+            "type": "array"
+          },
+          "minimum_travelers": {
+            "type": "integer"
+          },
+          "plans": {
+            "items": {
+              "$ref": "#/components/schemas/Option"
+            },
+            "type": "array"
+          },
+          "transport": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "departure_city",
+          "transport",
+          "minimum_travelers",
+          "plans",
+          "itinerary"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "供旅遊前端開發使用的獨立唯讀示範 API。所有文字、圖片、價格與庫存為虛構。資料以服務啟動時的 reference_date 為基準。",
+    "title": "Travel Python FastAPI",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.3",
+  "paths": {
+    "/api/v1/articles": {
+      "get": {
+        "operationId": "api_v1_articles",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/destination_id"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Article"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "旅遊內容列表",
+        "x-smoke-path": "/api/v1/articles"
+      }
+    },
+    "/api/v1/articles/{id}": {
+      "get": {
+        "operationId": "api_v1_articles_id",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Article"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "旅遊文章詳情",
+        "x-smoke-path": "/api/v1/articles/guide-taipei"
+      }
+    },
+    "/api/v1/campaigns": {
+      "get": {
+        "operationId": "api_v1_campaigns",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Campaign"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "優惠活動列表",
+        "x-smoke-path": "/api/v1/campaigns"
+      }
+    },
+    "/api/v1/campaigns/{id}": {
+      "get": {
+        "operationId": "api_v1_campaigns_id",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Campaign"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "優惠條件與折扣碼",
+        "x-smoke-path": "/api/v1/campaigns/escape-stay"
+      }
+    },
+    "/api/v1/categories": {
+      "get": {
+        "operationId": "api_v1_categories",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Category"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "旅遊品類捷徑",
+        "x-smoke-path": "/api/v1/categories"
+      }
+    },
+    "/api/v1/collections": {
+      "get": {
+        "operationId": "api_v1_collections",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Collection"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "主題集合列表",
+        "x-smoke-path": "/api/v1/collections"
+      }
+    },
+    "/api/v1/collections/{id}": {
+      "get": {
+        "operationId": "api_v1_collections_id",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Collection"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "主題集合內容",
+        "x-smoke-path": "/api/v1/collections/camping"
+      }
+    },
+    "/api/v1/collections/{id}/products": {
+      "get": {
+        "operationId": "api_v1_collections_id_products",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/type"
+          },
+          {
+            "$ref": "#/components/parameters/destination_id"
+          },
+          {
+            "$ref": "#/components/parameters/country"
+          },
+          {
+            "$ref": "#/components/parameters/tag"
+          },
+          {
+            "$ref": "#/components/parameters/amenity"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/min_price"
+          },
+          {
+            "$ref": "#/components/parameters/max_price"
+          },
+          {
+            "$ref": "#/components/parameters/min_rating"
+          },
+          {
+            "$ref": "#/components/parameters/min_days"
+          },
+          {
+            "$ref": "#/components/parameters/max_days"
+          },
+          {
+            "$ref": "#/components/parameters/free_cancellation"
+          },
+          {
+            "$ref": "#/components/parameters/bbox"
+          },
+          {
+            "$ref": "#/components/parameters/start_date"
+          },
+          {
+            "$ref": "#/components/parameters/end_date"
+          },
+          {
+            "$ref": "#/components/parameters/adults"
+          },
+          {
+            "$ref": "#/components/parameters/children"
+          },
+          {
+            "$ref": "#/components/parameters/quantity"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/departure_port"
+          },
+          {
+            "$ref": "#/components/parameters/departure_city"
+          },
+          {
+            "$ref": "#/components/parameters/cruise_line"
+          },
+          {
+            "$ref": "#/components/parameters/property_type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Card"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "集合內的商品搜尋",
+        "x-smoke-path": "/api/v1/collections/camping/products"
+      }
+    },
+    "/api/v1/config": {
+      "get": {
+        "operationId": "api_v1_config",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "api_version": {
+                          "enum": [
+                            "v1"
+                          ],
+                          "type": "string"
+                        },
+                        "currencies": {
+                          "items": {
+                            "enum": [
+                              "TWD"
+                            ],
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "limits": {
+                          "additionalProperties": {
+                            "type": "integer"
+                          },
+                          "type": "object"
+                        },
+                        "locales": {
+                          "items": {
+                            "enum": [
+                              "zh-TW"
+                            ],
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "notice": {
+                          "type": "string"
+                        },
+                        "price_units": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "type": "object"
+                        },
+                        "product_types": {
+                          "items": {
+                            "$ref": "#/components/schemas/Category"
+                          },
+                          "type": "array"
+                        },
+                        "sort_options": {
+                          "items": {
+                            "$ref": "#/components/schemas/Link"
+                          },
+                          "type": "array"
+                        },
+                        "timezone": {
+                          "enum": [
+                            "Asia/Taipei"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "api_version",
+                        "locales",
+                        "currencies",
+                        "timezone",
+                        "product_types",
+                        "sort_options",
+                        "price_units",
+                        "limits",
+                        "notice"
+                      ],
+                      "type": "object"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "前端設定與選項",
+        "x-smoke-path": "/api/v1/config"
+      }
+    },
+    "/api/v1/cruise/regions": {
+      "get": {
+        "operationId": "api_v1_cruise_regions",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/CruiseRegions"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "郵輪港口、航區與品牌",
+        "x-smoke-path": "/api/v1/cruise/regions"
+      }
+    },
+    "/api/v1/destinations": {
+      "get": {
+        "operationId": "api_v1_destinations",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/country"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Destination"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "目的地列表",
+        "x-smoke-path": "/api/v1/destinations"
+      }
+    },
+    "/api/v1/destinations/{id}": {
+      "get": {
+        "operationId": "api_v1_destinations_id",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/DestinationPage"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "目的地探索頁",
+        "x-smoke-path": "/api/v1/destinations/tokyo"
+      }
+    },
+    "/api/v1/faqs": {
+      "get": {
+        "operationId": "api_v1_faqs",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/category"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/FAQ"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "常見問題搜尋",
+        "x-smoke-path": "/api/v1/faqs"
+      }
+    },
+    "/api/v1/home": {
+      "get": {
+        "operationId": "api_v1_home",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Home"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "首頁區塊聚合",
+        "x-smoke-path": "/api/v1/home"
+      }
+    },
+    "/api/v1/navigation": {
+      "get": {
+        "operationId": "api_v1_navigation",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Navigation"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "主導覽與頁尾",
+        "x-smoke-path": "/api/v1/navigation"
+      }
+    },
+    "/api/v1/products": {
+      "get": {
+        "operationId": "api_v1_products",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/type"
+          },
+          {
+            "$ref": "#/components/parameters/destination_id"
+          },
+          {
+            "$ref": "#/components/parameters/country"
+          },
+          {
+            "$ref": "#/components/parameters/tag"
+          },
+          {
+            "$ref": "#/components/parameters/amenity"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/min_price"
+          },
+          {
+            "$ref": "#/components/parameters/max_price"
+          },
+          {
+            "$ref": "#/components/parameters/min_rating"
+          },
+          {
+            "$ref": "#/components/parameters/min_days"
+          },
+          {
+            "$ref": "#/components/parameters/max_days"
+          },
+          {
+            "$ref": "#/components/parameters/free_cancellation"
+          },
+          {
+            "$ref": "#/components/parameters/bbox"
+          },
+          {
+            "$ref": "#/components/parameters/start_date"
+          },
+          {
+            "$ref": "#/components/parameters/end_date"
+          },
+          {
+            "$ref": "#/components/parameters/adults"
+          },
+          {
+            "$ref": "#/components/parameters/children"
+          },
+          {
+            "$ref": "#/components/parameters/quantity"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/departure_port"
+          },
+          {
+            "$ref": "#/components/parameters/departure_city"
+          },
+          {
+            "$ref": "#/components/parameters/cruise_line"
+          },
+          {
+            "$ref": "#/components/parameters/property_type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Card"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "商品搜尋結果",
+        "x-smoke-path": "/api/v1/products?type=stay&sort=price_asc"
+      }
+    },
+    "/api/v1/products/map": {
+      "get": {
+        "operationId": "api_v1_products_map",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/type"
+          },
+          {
+            "$ref": "#/components/parameters/destination_id"
+          },
+          {
+            "$ref": "#/components/parameters/country"
+          },
+          {
+            "$ref": "#/components/parameters/tag"
+          },
+          {
+            "$ref": "#/components/parameters/amenity"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/min_price"
+          },
+          {
+            "$ref": "#/components/parameters/max_price"
+          },
+          {
+            "$ref": "#/components/parameters/min_rating"
+          },
+          {
+            "$ref": "#/components/parameters/min_days"
+          },
+          {
+            "$ref": "#/components/parameters/max_days"
+          },
+          {
+            "$ref": "#/components/parameters/free_cancellation"
+          },
+          {
+            "$ref": "#/components/parameters/bbox"
+          },
+          {
+            "$ref": "#/components/parameters/start_date"
+          },
+          {
+            "$ref": "#/components/parameters/end_date"
+          },
+          {
+            "$ref": "#/components/parameters/adults"
+          },
+          {
+            "$ref": "#/components/parameters/children"
+          },
+          {
+            "$ref": "#/components/parameters/quantity"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/departure_port"
+          },
+          {
+            "$ref": "#/components/parameters/departure_city"
+          },
+          {
+            "$ref": "#/components/parameters/cruise_line"
+          },
+          {
+            "$ref": "#/components/parameters/property_type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/MapPoint"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "商品地圖點位",
+        "x-smoke-path": "/api/v1/products/map?bbox=121,24,122,26"
+      }
+    },
+    "/api/v1/products/{id}": {
+      "get": {
+        "operationId": "api_v1_products_id",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Product"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "商品完整詳情",
+        "x-smoke-path": "/api/v1/products/cruise-001"
+      }
+    },
+    "/api/v1/products/{id}/availability": {
+      "get": {
+        "operationId": "api_v1_products_id_availability",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/start_date"
+          },
+          {
+            "$ref": "#/components/parameters/end_date"
+          },
+          {
+            "$ref": "#/components/parameters/adults"
+          },
+          {
+            "$ref": "#/components/parameters/children"
+          },
+          {
+            "$ref": "#/components/parameters/quantity"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Availability"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "方案容量、庫存與報價",
+        "x-smoke-path": "/api/v1/products/stay-001/availability"
+      }
+    },
+    "/api/v1/products/{id}/cabins": {
+      "get": {
+        "operationId": "api_v1_products_id_cabins",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Option"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "郵輪艙房",
+        "x-smoke-path": "/api/v1/products/cruise-001/cabins"
+      }
+    },
+    "/api/v1/products/{id}/calendar": {
+      "get": {
+        "operationId": "api_v1_products_id_calendar",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/start_date"
+          },
+          {
+            "$ref": "#/components/parameters/end_date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/CalendarDay"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "每日起價與庫存日曆",
+        "x-smoke-path": "/api/v1/products/stay-001/calendar"
+      }
+    },
+    "/api/v1/products/{id}/departures": {
+      "get": {
+        "operationId": "api_v1_products_id_departures",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/start_date"
+          },
+          {
+            "$ref": "#/components/parameters/end_date"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/status"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/CalendarDay"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "郵輪與跟團出發日期",
+        "x-smoke-path": "/api/v1/products/tour-001/departures"
+      }
+    },
+    "/api/v1/products/{id}/itinerary": {
+      "get": {
+        "operationId": "api_v1_products_id_itinerary",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Day"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "郵輪與跟團每日行程",
+        "x-smoke-path": "/api/v1/products/tour-001/itinerary"
+      }
+    },
+    "/api/v1/products/{id}/plans": {
+      "get": {
+        "operationId": "api_v1_products_id_plans",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Option"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "跟團、體驗與交通方案",
+        "x-smoke-path": "/api/v1/products/activity-001/plans"
+      }
+    },
+    "/api/v1/products/{id}/related": {
+      "get": {
+        "operationId": "api_v1_products_id_related",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Card"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "相關商品推薦",
+        "x-smoke-path": "/api/v1/products/stay-001/related"
+      }
+    },
+    "/api/v1/products/{id}/reviews": {
+      "get": {
+        "operationId": "api_v1_products_id_reviews",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/rating"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Review"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Meta"
+                        },
+                        {
+                          "required": [
+                            "pagination"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "商品旅客評價",
+        "x-smoke-path": "/api/v1/products/stay-001/reviews"
+      }
+    },
+    "/api/v1/products/{id}/rooms": {
+      "get": {
+        "operationId": "api_v1_products_id_rooms",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Option"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "住宿房型",
+        "x-smoke-path": "/api/v1/products/stay-001/rooms"
+      }
+    },
+    "/api/v1/search/filters": {
+      "get": {
+        "operationId": "api_v1_search_filters",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/type"
+          },
+          {
+            "$ref": "#/components/parameters/destination_id"
+          },
+          {
+            "$ref": "#/components/parameters/country"
+          },
+          {
+            "$ref": "#/components/parameters/tag"
+          },
+          {
+            "$ref": "#/components/parameters/amenity"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/min_price"
+          },
+          {
+            "$ref": "#/components/parameters/max_price"
+          },
+          {
+            "$ref": "#/components/parameters/min_rating"
+          },
+          {
+            "$ref": "#/components/parameters/min_days"
+          },
+          {
+            "$ref": "#/components/parameters/max_days"
+          },
+          {
+            "$ref": "#/components/parameters/free_cancellation"
+          },
+          {
+            "$ref": "#/components/parameters/bbox"
+          },
+          {
+            "$ref": "#/components/parameters/start_date"
+          },
+          {
+            "$ref": "#/components/parameters/end_date"
+          },
+          {
+            "$ref": "#/components/parameters/adults"
+          },
+          {
+            "$ref": "#/components/parameters/children"
+          },
+          {
+            "$ref": "#/components/parameters/quantity"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/departure_port"
+          },
+          {
+            "$ref": "#/components/parameters/departure_city"
+          },
+          {
+            "$ref": "#/components/parameters/cruise_line"
+          },
+          {
+            "$ref": "#/components/parameters/property_type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Facets"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "目前查詢結果的篩選計數",
+        "x-smoke-path": "/api/v1/search/filters?type=stay"
+      }
+    },
+    "/api/v1/search/suggestions": {
+      "get": {
+        "operationId": "api_v1_search_suggestions",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/type"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Suggestion"
+                      },
+                      "type": "array"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "目的地與商品自動完成",
+        "x-smoke-path": "/api/v1/search/suggestions?q=東京"
+      }
+    },
+    "/healthz": {
+      "get": {
+        "operationId": "healthz",
+        "parameters": [
+          {
+            "description": "僅提供繁體中文。",
+            "in": "query",
+            "name": "locale",
+            "schema": {
+              "enum": [
+                "zh-TW"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "價格以整數新台幣元表示，不進行匯率換算。",
+            "in": "query",
+            "name": "currency",
+            "schema": {
+              "enum": [
+                "TWD"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "status": {
+                          "enum": [
+                            "ok"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "status"
+                      ],
+                      "type": "object"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "meta"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "成功；所有內容為 mock 資料。"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "查詢參數無效。未知參數、重複參數與不支援語系回傳 400。"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資源不存在或不適用該商品品類。"
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "非唯讀 HTTP 方法。"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "資料庫讀取失敗。"
+          }
+        },
+        "summary": "健康檢查",
+        "x-smoke-path": "/healthz"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+name: API checks
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python -m unittest discover -s tests -v
+      - run: |
+          REFERENCE_DATE=2026-10-20 python -m uvicorn app.main:app --port 8000 &
+          for attempt in $(seq 1 30); do
+            curl -fsS http://localhost:8000/healthz && break
+            sleep 1
+          done
+          python scripts/verify_api.py --base-url http://localhost:8000
+      - run: docker build -t travel-python-fastapi .
